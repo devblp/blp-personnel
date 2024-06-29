@@ -9,7 +9,7 @@ export default function App() {
     <>
     <Header/>
     <Routes>
-      <Route path="/" component={Home} />
+      <Route exact path="/" element={<Home />} />
     </Routes>
     <Footer/>
     </>
