@@ -41,8 +41,8 @@ export default function ButtonAppBar() {
                 src={headerLogo}
               />
             </Grid>
-            <Grid>
-              <List sx={{ display: "flex" }}>
+            <Grid >
+              <List sx={{display:{xs:"none",md:"flex"}}}>
                 <MenuItem sx={{ fontWeight: "bold" }}>About Me</MenuItem>
                 <MenuItem sx={{ fontWeight: "bold" }}>Skills</MenuItem>
                 <MenuItem sx={{ fontWeight: "bold" }}>Project</MenuItem>
@@ -58,7 +58,9 @@ export default function ButtonAppBar() {
                   width: "153px",
                   ":hover": { bgcolor: "black" },
                   fontWeight: "bold",
+                  display:{xs:"none",md:"flex"}
                 }}
+             
                 endIcon={<DownloadIcon />}
               >
                 <Typography>Resume</Typography>
