@@ -10,7 +10,9 @@ import { Avatar, List, MenuItem } from "@mui/material";
 // img
 import headerLogo from "../../img/LOGO.png";
 
+// icon
 import DownloadIcon from "@mui/icons-material/Download";
+import MenuIcon from '@mui/icons-material/Menu';
 
 export default function ButtonAppBar() {
   return (
@@ -22,7 +24,7 @@ export default function ButtonAppBar() {
           boxShadow: 0,
           color: "black",
           m: "20px 0px 0px 0px",
-          px: "50px",
+          px: {xs:2,md:7},
         }}
       >
         <Toolbar>
@@ -41,6 +43,9 @@ export default function ButtonAppBar() {
                 src={headerLogo}
               />
             </Grid>
+            <Grid sx={{display:{xs:"flex",md:"none"}}}>
+              <MenuIcon/>
+            </Grid>
             <Grid >
               <List sx={{display:{xs:"none",md:"flex"}}}>
                 <MenuItem sx={{ fontWeight: "bold" }}>About Me</MenuItem>
@@ -49,7 +54,7 @@ export default function ButtonAppBar() {
                 <MenuItem sx={{ fontWeight: "bold" }}>Contact me</MenuItem>
               </List>
             </Grid>
-            <Grid>
+            <Grid sx={{display:{xs:"none",md:"flex"}}}>
               <Button
                 sx={{
                   bgcolor: "black",
@@ -58,7 +63,6 @@ export default function ButtonAppBar() {
                   width: "153px",
                   ":hover": { bgcolor: "black" },
                   fontWeight: "bold",
-                  display:{xs:"none",md:"flex"}
                 }}
              
                 endIcon={<DownloadIcon />}
