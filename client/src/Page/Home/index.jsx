@@ -2,11 +2,14 @@ import {
   Avatar,
   Box,
   Button,
-  ButtonGroup,
+  Container,
   Grid,
+  TextField,
   Typography,
 } from "@mui/material";
 import React from "react";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as Yup from "yup";
 import "./style.css";
 
 // img
@@ -368,7 +371,9 @@ export default function Home() {
                   Nov 2019 - Present
                 </Typography>
               </Box>
-              <Typography sx={{ fontSize: { xs: 12, md: 16 },color:"#71717A" }}>
+              <Typography
+                sx={{ fontSize: { xs: 12, md: 16 }, color: "#71717A" }}
+              >
                 As a Senior Software Engineer at Google, I played a pivotal role
                 in developing innovative solutions for Google's core search
                 <br />
@@ -412,7 +417,9 @@ export default function Home() {
                   Jan 2017 - Oct 2019
                 </Typography>
               </Box>
-              <Typography sx={{ fontSize: { xs: 12, md: 16 },color:"#71717A" }}>
+              <Typography
+                sx={{ fontSize: { xs: 12, md: 16 }, color: "#71717A" }}
+              >
                 At Youtube, I served as a Software Engineer, focusing on the
                 design and implementation of backend systems for the social
                 <br />
@@ -456,7 +463,9 @@ export default function Home() {
                   Jan 2016 - Dec 2017
                 </Typography>
               </Box>
-              <Typography sx={{ fontSize: { xs: 12, md: 16 },color:"#71717A" }}>
+              <Typography
+                sx={{ fontSize: { xs: 12, md: 16 }, color: "#71717A" }}
+              >
                 During my tenure at Apple, I held the role of Software
                 Architect, where I played a <br />
                 key role in shaping the architecture of mission-critical
@@ -495,7 +504,7 @@ export default function Home() {
             <Typography sx={{ fontSize: { xs: 25, md: 45 } }}>
               About <span style={{ fontWeight: "bold" }}>Me</span>
             </Typography>
-            <Typography sx={{ fontSize: { xs: 12, md: 15 },color:"#71717A" }}>
+            <Typography sx={{ fontSize: { xs: 12, md: 15 }, color: "#71717A" }}>
               I am a passionate and self-taught designer specializing in
               full-stack
               <br />
@@ -509,7 +518,7 @@ export default function Home() {
               <br />
               performance code are important to me.
             </Typography>
-            <Typography sx={{ fontSize: { xs: 12, md: 15 },color:"#71717A" }}>
+            <Typography sx={{ fontSize: { xs: 12, md: 15 }, color: "#71717A" }}>
               I started my journey as a web developer in 2023, and since then, I
               have
               <br />
@@ -525,7 +534,7 @@ export default function Home() {
               <br />
               Next.js, Node.js, React.js, MongoDB, Express, Tailwind, and MUI.
             </Typography>
-            <Typography sx={{ fontSize: { xs: 12, md: 15 },color:"#71717A" }}>
+            <Typography sx={{ fontSize: { xs: 12, md: 15 }, color: "#71717A" }}>
               When I'm not fully immersed in programming, you can find me on
               Twitter or Indie
               <br />
@@ -539,63 +548,353 @@ export default function Home() {
           </Grid>
         </Grid>
       </Grid>
-      <Grid xs={12} sx={{ bgcolor: "black",my: 6 }}>
+      <Grid xs={12} sx={{ bgcolor: "black", my: 6 }}>
         <Grid xs={12} sx={{ mx: { xs: 3, md: 10 } }}>
           <Grid container xs={12} sx={{ justifyContent: "center" }}>
-            <Typography sx={{ fontSize: { xs: 25, md: 45 }, color: "white",p:"50px 0px 0px 0px" }}>
+            <Typography
+              sx={{
+                fontSize: { xs: 25, md: 45 },
+                color: "white",
+                p: "50px 0px 0px 0px",
+              }}
+            >
               My <span style={{ fontWeight: "bold" }}>Projects</span>
             </Typography>
-            <Grid container xs={12} sx={{gap:10,py:10}}>
-              <Grid container xs={12} sx={{ color: "white"}}>
+            <Grid container xs={12} sx={{ gap: 10, py: 10 }}>
+              <Grid container xs={12} sx={{ color: "white" }}>
                 <Grid xs={12} md={6}>
-                  <Avatar src={image770} sx={{width:{xs:"100%",md:"530px"},height:{xs:460,md:"390px"},borderRadius:10,p:0}}/>
+                  <Avatar
+                    src={image770}
+                    sx={{
+                      width: { xs: "100%", md: "530px" },
+                      height: { xs: 460, md: "390px" },
+                      borderRadius: 10,
+                      p: 0,
+                    }}
+                  />
                 </Grid>
-                <Grid container xs={12} md={6} sx={{flexDirection:"column",gap:3}}>
-                  <Typography sx={{ fontSize: { xs: 25, md: 35 } ,color:"#5FC595" ,fontWeight:"bold"}}>01</Typography>
-                  <Typography sx={{ fontSize: { xs: 14, md: 28 } ,fontWeight:"bold"}}>Crypto Screener Application</Typography>
-                  <Typography sx={{ fontSize: { xs: 12, md: 16 }, color:"#71717A" }}>
-                  I'm Evren Shah Lorem Ipsum is simply dummy text of the printing and <br/>
-                  typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever<br/>
-                   since the 1500s, when an unknown printer took a galley of type and scrambled it to specimen book.
-                   </Typography>
-                   <GitHubIcon/>
+                <Grid
+                  container
+                  xs={12}
+                  md={6}
+                  sx={{ flexDirection: "column", gap: 3 }}
+                >
+                  <Typography
+                    sx={{
+                      fontSize: { xs: 25, md: 35 },
+                      color: "#5FC595",
+                      fontWeight: "bold",
+                    }}
+                  >
+                    01
+                  </Typography>
+                  <Typography
+                    sx={{ fontSize: { xs: 14, md: 28 }, fontWeight: "bold" }}
+                  >
+                    Crypto Screener Application
+                  </Typography>
+                  <Typography
+                    sx={{ fontSize: { xs: 12, md: 16 }, color: "#71717A" }}
+                  >
+                    I'm Evren Shah Lorem Ipsum is simply dummy text of the
+                    printing and <br />
+                    typesetting industry. Lorem Ipsum has been the industry's
+                    standard dummy text ever
+                    <br />
+                    since the 1500s, when an unknown printer took a galley of
+                    type and scrambled it to specimen book.
+                  </Typography>
+                  <GitHubIcon />
                 </Grid>
               </Grid>
-              <Grid container xs={12} sx={{ color: "white" ,flexDirection:"row-reverse"}}>
-              <Grid xs={12} md={6}>
-                  <Avatar src={image771} sx={{width:{xs:"100%",md:"530px"},height:{xs:460,md:"390px"},borderRadius:10,p:0}}/>
+              <Grid
+                container
+                xs={12}
+                sx={{ color: "white", flexDirection: "row-reverse" }}
+              >
+                <Grid xs={12} md={6}>
+                  <Avatar
+                    src={image771}
+                    sx={{
+                      width: { xs: "100%", md: "530px" },
+                      height: { xs: 460, md: "390px" },
+                      borderRadius: 10,
+                      p: 0,
+                    }}
+                  />
                 </Grid>
-                <Grid container xs={12} md={6} sx={{gap:3,flexDirection:"column"}}>
-                  <Typography sx={{ fontSize: { xs: 25, md: 35 } ,color:"#5FC595" ,fontWeight:"bold"}}>02</Typography>
-                  <Typography sx={{ fontSize: { xs: 14, md: 28 } ,fontWeight:"bold"}}>Crypto Screener Application</Typography>
-                  <Typography sx={{ fontSize: { xs: 12, md: 16 }, color:"#71717A" }}>
-                  I'm Evren Shah Lorem Ipsum is simply dummy text of the printing and <br/>
-                  typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever<br/>
-                   since the 1500s, when an unknown printer took a galley of type and scrambled it to specimen book.
-                   </Typography>
-                   <GitHubIcon/>
+                <Grid
+                  container
+                  xs={12}
+                  md={6}
+                  sx={{ gap: 3, flexDirection: "column" }}
+                >
+                  <Typography
+                    sx={{
+                      fontSize: { xs: 25, md: 35 },
+                      color: "#5FC595",
+                      fontWeight: "bold",
+                    }}
+                  >
+                    02
+                  </Typography>
+                  <Typography
+                    sx={{ fontSize: { xs: 14, md: 28 }, fontWeight: "bold" }}
+                  >
+                    Crypto Screener Application
+                  </Typography>
+                  <Typography
+                    sx={{ fontSize: { xs: 12, md: 16 }, color: "#71717A" }}
+                  >
+                    I'm Evren Shah Lorem Ipsum is simply dummy text of the
+                    printing and <br />
+                    typesetting industry. Lorem Ipsum has been the industry's
+                    standard dummy text ever
+                    <br />
+                    since the 1500s, when an unknown printer took a galley of
+                    type and scrambled it to specimen book.
+                  </Typography>
+                  <GitHubIcon />
                 </Grid>
               </Grid>
-              <Grid container xs={12} sx={{ color: "white"}}>
+              <Grid container xs={12} sx={{ color: "white" }}>
                 <Grid xs={12} md={6}>
-                  <Avatar src={image770} sx={{width:{xs:"100%",md:"530px"},height:{xs:460,md:"390px"},borderRadius:10,p:0}}/>
+                  <Avatar
+                    src={image770}
+                    sx={{
+                      width: { xs: "100%", md: "530px" },
+                      height: { xs: 460, md: "390px" },
+                      borderRadius: 10,
+                      p: 0,
+                    }}
+                  />
                 </Grid>
-                <Grid container xs={12} md={6} sx={{flexDirection:"column",gap:3}}>
-                  <Typography sx={{ fontSize: { xs: 25, md: 35 } ,color:"#5FC595" ,fontWeight:"bold"}}>03</Typography>
-                  <Typography sx={{ fontSize: { xs: 14, md: 28 } ,fontWeight:"bold"}}>Crypto Screener Application</Typography>
-                  <Typography sx={{ fontSize: { xs: 12, md: 16 }, color:"#71717A" }}>
-                  I'm Evren Shah Lorem Ipsum is simply dummy text of the printing and <br/>
-                  typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever<br/>
-                   since the 1500s, when an unknown printer took a galley of type and scrambled it to specimen book.
-                   </Typography>
-                   <GitHubIcon/>
+                <Grid
+                  container
+                  xs={12}
+                  md={6}
+                  sx={{ flexDirection: "column", gap: 3 }}
+                >
+                  <Typography
+                    sx={{
+                      fontSize: { xs: 25, md: 35 },
+                      color: "#5FC595",
+                      fontWeight: "bold",
+                    }}
+                  >
+                    03
+                  </Typography>
+                  <Typography
+                    sx={{ fontSize: { xs: 14, md: 28 }, fontWeight: "bold" }}
+                  >
+                    Crypto Screener Application
+                  </Typography>
+                  <Typography
+                    sx={{ fontSize: { xs: 12, md: 16 }, color: "#71717A" }}
+                  >
+                    I'm Evren Shah Lorem Ipsum is simply dummy text of the
+                    printing and <br />
+                    typesetting industry. Lorem Ipsum has been the industry's
+                    standard dummy text ever
+                    <br />
+                    since the 1500s, when an unknown printer took a galley of
+                    type and scrambled it to specimen book.
+                  </Typography>
+                  <GitHubIcon />
                 </Grid>
               </Grid>
             </Grid>
           </Grid>
         </Grid>
       </Grid>
-      
+      <Grid xs={12} sx={{ m: { xs: 4, md: 10 } }}>
+        <Grid
+          container
+          xs={12}
+          sx={{ flexDirection: { xs: "column", md: "row" } }}
+        >
+          <Grid xs={12} md={6}>
+            <Formik
+              initialValues={{
+                name: "",
+                email: "",
+                website: "",
+                message: "",
+              }}
+              validationSchema={Yup.object({
+                name: Yup.string().required("Required"),
+                email: Yup.string()
+                  .email("Invalid email address")
+                  .required("Required"),
+                website: Yup.string().url("Invalid URL"),
+                message: Yup.string().required("Required"),
+              })}
+              onSubmit={(values, { setSubmitting }) => {
+                fetch("http://localhost:5000/contact", {
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                  body: JSON.stringify(values),
+                })
+                  .then((response) => response.json())
+                  .then((data) => {
+                    alert("Message sent successfully!");
+                    setSubmitting(false);
+                  })
+                  .catch((error) => {
+                    console.error("There was an error!", error);
+                    setSubmitting(false);
+                  });
+              }}
+            >
+              {({
+                isSubmitting,
+                handleChange,
+                handleBlur,
+                values,
+                touched,
+                errors,
+              }) => (
+                <Grid>
+                  <Form>
+                    <Box marginBottom={2}>
+                      <TextField
+                        fullWidth
+                        label="Your name"
+                        name="name"
+                        variant="outlined"
+                        value={values.name}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        helperText={
+                          touched.name && errors.name ? errors.name : ""
+                        }
+                        error={touched.name && Boolean(errors.name)}
+                      />
+                    </Box>
+                    <Box marginBottom={2}>
+                      <TextField
+                        fullWidth
+                        label="Email"
+                        name="email"
+                        variant="outlined"
+                        type="email"
+                        value={values.email}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        helperText={
+                          touched.email && errors.email ? errors.email : ""
+                        }
+                        error={touched.email && Boolean(errors.email)}
+                      />
+                    </Box>
+                    <Box marginBottom={2}>
+                      <TextField
+                        fullWidth
+                        label="Your website (if exists)"
+                        name="website"
+                        variant="outlined"
+                        value={values.website}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        helperText={
+                          touched.website && errors.website
+                            ? errors.website
+                            : ""
+                        }
+                        error={touched.website && Boolean(errors.website)}
+                      />
+                    </Box>
+                    <Box marginBottom={2}>
+                      <TextField
+                        fullWidth
+                        label="How can I help?"
+                        name="message"
+                        variant="outlined"
+                        multiline
+                        rows={4}
+                        value={values.message}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        helperText={
+                          touched.message && errors.message
+                            ? errors.message
+                            : ""
+                        }
+                        error={touched.message && Boolean(errors.message)}
+                      />
+                    </Box>
+                    <Grid container xs={12} sx={{ gap: 3 }}>
+                      <Button
+                        type="submit"
+                        sx={{
+                          bgcolor: "black",
+                          color: "white",
+                          p: 1.5,
+                          ":hover": { bgcolor: "black" },
+                        }}
+                        disabled={isSubmitting}
+                      >
+                        Get In Touch
+                      </Button>
+                      <Button
+                        sx={{
+                          bgcolor: "white",
+                          color: "black",
+                          p: 1.5,
+                          border: "solid 1px black",
+                          ":hover": { bgcolor: "black", color: "white" },
+                        }}
+                      >
+                        <LinkedInIcon />
+                      </Button>
+                      <Button
+                        sx={{
+                          bgcolor: "white",
+                          color: "black",
+                          p: 1.5,
+                          border: "solid 1px black",
+                          ":hover": { bgcolor: "black", color: "white" },
+                        }}
+                      >
+                        <GitHubIcon />
+                      </Button>
+                      <Button
+                        sx={{
+                          bgcolor: "white",
+                          color: "black",
+                          p: 1.5,
+                          border: "solid 1px black",
+                          ":hover": { bgcolor: "black", color: "white" },
+                        }}
+                      >
+                        <TelegramIcon />
+                      </Button>
+                    </Grid>
+                  </Form>
+                </Grid>
+              )}
+            </Formik>
+          </Grid>
+          <Grid xs={6} sx={{px:12}}>
+            <Typography sx={{fontWeight:"bold",fontSize:40}}>
+              Let’s <span className="strokeme">talk</span> for
+            </Typography>
+            <Typography sx={{fontWeight:"bold",fontSize:39}}>Something special</Typography>
+            <br/>
+            <Typography sx={{fontSize: { xs: 12, md: 16 }, color: "#71717A"}}>
+              I seek to push the limits of creativity to create high-engaging,
+              user-
+              
+              friendly, and memorable interactive experiences.
+            </Typography>
+            <br/><br/><br/>
+            <Typography sx={{fontWeight:"bold",fontSize:25}}>dev.sinanp@gmail.com</Typography>
+            <Typography sx={{fontWeight:"bold",fontSize:25}}>+989046060193</Typography>
+          </Grid>
+        </Grid>
+      </Grid>
     </>
   );
 }
