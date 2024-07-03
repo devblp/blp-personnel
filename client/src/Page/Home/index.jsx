@@ -332,10 +332,14 @@ export default function Home() {
         <Grid
           container
           xs={12}
-          sx={{ px: { xs: 4, md: 10 }, justifyContent: "center", gap: 5 }}
+          sx={{ p: { xs: 4, md: 10 }, justifyContent: "center", gap: 5 }}
         >
           <Typography
-            sx={{ color: "white", fontSize: { xs: 25, md: 45 }, my: 5 }}
+            sx={{
+              color: "white",
+              fontSize: { xs: 25, md: 45 },
+              m: "0px 0px 30px 0px",
+            }}
           >
             My <span style={{ fontWeight: "bold" }}>Experience</span>
           </Typography>
@@ -344,7 +348,14 @@ export default function Home() {
             xs={12}
             sx={{ color: "white", gap: 3, justifyContent: "center" }}
           >
-            <Grid sx={{ border: "solid 1px #71717A", borderRadius: 2, p: 3 }}>
+            <Grid
+              sx={{
+                border: "solid 1px #71717A",
+                borderRadius: 2,
+                p: 3,
+                width: "100%",
+              }}
+            >
               <Box
                 sx={{
                   color: "white",
@@ -390,7 +401,14 @@ export default function Home() {
             xs={12}
             sx={{ color: "white", gap: 3, justifyContent: "center" }}
           >
-            <Grid sx={{ border: "solid 1px #71717A", borderRadius: 2, p: 3 }}>
+            <Grid
+              sx={{
+                border: "solid 1px #71717A",
+                borderRadius: 2,
+                p: 3,
+                width: "100%",
+              }}
+            >
               <Box
                 sx={{
                   color: "white",
@@ -436,7 +454,14 @@ export default function Home() {
             xs={12}
             sx={{ color: "white", gap: 3, justifyContent: "center" }}
           >
-            <Grid sx={{ border: "solid 1px #71717A", borderRadius: 2, p: 3 }}>
+            <Grid
+              sx={{
+                border: "solid 1px #71717A",
+                borderRadius: 2,
+                p: 3,
+                width: "100%",
+              }}
+            >
               <Box
                 sx={{
                   color: "white",
@@ -476,7 +501,6 @@ export default function Home() {
               </Typography>
             </Grid>
           </Grid>
-          <Grid container xs={12}></Grid>
         </Grid>
       </Grid>
       <Grid xs={12} sx={{ mx: { xs: 4, md: 10 } }}>
@@ -505,45 +529,35 @@ export default function Home() {
               About <span style={{ fontWeight: "bold" }}>Me</span>
             </Typography>
             <Typography sx={{ fontSize: { xs: 12, md: 15 }, color: "#71717A" }}>
-              I am a passionate and self-taught designer specializing in
-              full-stack
-              <br />
-              development (React.js and Node.js). I'm very interested in
-              bringing both
-              <br />
-              the technical and visual aspects of digital products to life. User
-              <br />
-              experience, pixel-perfect design, and writing clear, readable,
-              high-
-              <br />
-              performance code are important to me.
+              I am a passionate and self-taught designer specializing in<br />
+              full-stack development (React.js and Node.js). I'm very interested<br />
+              in bringing both the technical and visual aspects of digital<br />
+              products to life. User experience, pixel-perfect design, and<br />
+              writing clear, readable, high- performance code are important to<br />
+              me.
             </Typography>
             <Typography sx={{ fontSize: { xs: 12, md: 15 }, color: "#71717A" }}>
               I started my journey as a web developer in 2023, and since then, I
-              have
               <br />
-              grown and evolved, facing new challenges and learning the latest
+              have grown and evolved, facing new challenges and learning the
               <br />
-              technologies. Now, in the early years of my thirties, one year
-              after
+              latest technologies. starting my web development journey, I am
               <br />
-              starting my web development journey, I am building advanced web
-              applications
+              building advanced web applications using modern technologies such
               <br />
-              using modern technologies such as
+              as Next.js, Node.js, React.js, MongoDB, Express, Tailwind, and
               <br />
-              Next.js, Node.js, React.js, MongoDB, Express, Tailwind, and MUI.
+              MUI.
             </Typography>
             <Typography sx={{ fontSize: { xs: 12, md: 15 }, color: "#71717A" }}>
               When I'm not fully immersed in programming, you can find me on
-              Twitter or Indie
               <br />
-              Hacker, where I observe the journeys of early-stage startups or
-              simply enjoy my
+              GitHub or linkeden where I observe the journeys of early-stage
               <br />
-              free time. Feel free to follow me on Twitter, where I share
-              tech-related insights <br />
-              and build in public, or you can find me on GitHub.
+              startups or simply enjoy my free time. Feel free to follow me on
+              <br />
+              Twitter, where I share tech-related insights
+              <br />
             </Typography>
           </Grid>
         </Grid>
@@ -877,21 +891,27 @@ export default function Home() {
               )}
             </Formik>
           </Grid>
-          <Grid xs={6} sx={{px:12}}>
-            <Typography sx={{fontWeight:"bold",fontSize:40}}>
+          <Grid xs={6} sx={{ px: 12 }}>
+            <Typography sx={{ fontWeight: "bold", fontSize: 40 }}>
               Let’s <span className="strokeme">talk</span> for
             </Typography>
-            <Typography sx={{fontWeight:"bold",fontSize:39}}>Something special</Typography>
-            <br/>
-            <Typography sx={{fontSize: { xs: 12, md: 16 }, color: "#71717A"}}>
-              I seek to push the limits of creativity to create high-engaging,
-              user-
-              
-              friendly, and memorable interactive experiences.
+            <Typography sx={{ fontWeight: "bold", fontSize: 39 }}>
+              Something special
             </Typography>
-            <br/><br/><br/>
-            <Typography sx={{fontWeight:"bold",fontSize:25}}>dev.sinanp@gmail.com</Typography>
-            <Typography sx={{fontWeight:"bold",fontSize:25}}>+989046060193</Typography>
+            <br />
+            <Typography sx={{ fontSize: { xs: 12, md: 16 }, color: "#71717A" }}>
+              I seek to push the limits of creativity to create high-engaging,
+              user- friendly, and memorable interactive experiences.
+            </Typography>
+            <br />
+            <br />
+            <br />
+            <Typography sx={{ fontWeight: "bold", fontSize: 25 }}>
+              dev.sinanp@gmail.com
+            </Typography>
+            <Typography sx={{ fontWeight: "bold", fontSize: 25 }}>
+              +989046060193
+            </Typography>
           </Grid>
         </Grid>
       </Grid>
