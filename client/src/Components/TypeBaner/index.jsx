@@ -14,7 +14,7 @@ const CodeBanner = () => {
 
               strings={["Example", "sina", "test"]}
               typeSpeed={50}
-              backSpeed={60}
+              backSpeed={50}
               loop
               style={{color:"green"}}
             />
