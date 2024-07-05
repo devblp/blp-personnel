@@ -24,7 +24,7 @@ export default function ButtonAppBar() {
           boxShadow: 0,
           color: "black",
           m: "20px 0px 0px 0px",
-          px: {xs:2,md:7},
+          px: { xs: 4, md: 10,xl:20 },
         }}
       >
         <Toolbar>

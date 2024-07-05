@@ -4,7 +4,7 @@ import { ReactTyped } from "react-typed";
 
 const CodeBanner = () => {
   return (
-    <Box sx={{ background: "black", color: "white", p: 3,width:{xs:300,md:410},borderRadius:4,my:3 }}>
+    <Box sx={{ background: "black", color: "white", p: 3,width:{xs:280,md:410},borderRadius:4,my:3 }}>
       <pre>
         <code>
           <Typography sx={{fontSize:{xs:13,md:18}}}>

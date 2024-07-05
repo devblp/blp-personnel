@@ -6,10 +6,14 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import React from "react";
+import React, { useRef,useState,Suspense } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
+import { motion, useInView } from "framer-motion";
 import "./style.css";
+import { Canvas } from "@react-three/fiber";
+import { OrbitControls } from "@react-three/drei";
+import Scene from "../../../Public/Scene"
 
 // img
 import banner from "../../img/Banner.png";
@@ -39,12 +43,29 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import CodeBanner from "../../Components/TypeBaner";
 
 export default function Home() {
+  const ref1 = useRef(null);
+  const ref2 = useRef(null);
+  const ref3 = useRef(null);
+  const ref4 = useRef(null);
+  const ref5 = useRef(null);
+  const ref6 = useRef(null);
+  const inView1 = useInView(ref1, { once: true });
+  const inView2 = useInView(ref2, { once: true });
+  const inView3 = useInView(ref3, { once: true });
+  const inView4 = useInView(ref4, { once: true });
+  const inView5 = useInView(ref5, { once: true });
+  const inView6 = useInView(ref6, { once: true });
   return (
     <>
+      <Canvas>
+        <Suspense fallback={null}>
+          <Scene/>
+        </Suspense>
+      </Canvas>
       <Grid
         container
-        sx={{ flexDirection: "row-reverse", px: { xs: 2, md: 10 } }}
-        my={10}
+        sx={{ flexDirection: "row-reverse", px: { xs: 4, md: 10, xl: 20 } }}
+        my={18}
       >
         <Grid item xs={12} md={6}>
           <Avatar
@@ -58,7 +79,7 @@ export default function Home() {
               <CodeBanner />
             </Grid>
             <Grid item xs={12}>
-              <Typography fontSize={{ xs: 32, md: 48 }}>
+              <Typography fontSize={{ xs: 32, md: 40 }}>
                 Hello I’m
                 <span style={{ fontWeight: "bold" }}> Sina Nasibparast</span>
               </Typography>
@@ -115,7 +136,13 @@ export default function Home() {
       <Grid
         container
         xs={12}
-        sx={{ justifyContent: "center", alignItems: "center", my: 18, gap: 5 }}
+        sx={{
+          justifyContent: "center",
+          alignItems: "center",
+          m: "0px 0px 200px 0px",
+          gap: 5,
+          px: { xs: 2, md: 8, xl: 20 },
+        }}
       >
         <Typography sx={{ fontSize: { xs: 25, md: 45 } }}>
           My <span style={{ fontWeight: "bold" }}>Skills</span>
@@ -327,11 +354,15 @@ export default function Home() {
           </Grid>
         </Grid>
       </Grid>
-      <Grid xs={12} sx={{ bgcolor: "black", my: 6 }}>
+      <Grid xs={12} sx={{ bgcolor: "black", my: 6, py: 10 }}>
         <Grid
           container
           xs={12}
-          sx={{ p: { xs: 4, md: 10 }, justifyContent: "center", gap: 5 }}
+          sx={{
+            px: { xs: 4, md: 10, xl: 20 },
+            justifyContent: "center",
+            gap: 5,
+          }}
         >
           <Typography
             sx={{
@@ -347,162 +378,199 @@ export default function Home() {
             xs={12}
             sx={{ color: "white", gap: 3, justifyContent: "center" }}
           >
-            <Grid
-              sx={{
-                border: "solid 1px #71717A",
-                borderRadius: 2,
-                p: 3,
-                width: "100%",
-              }}
-            >
-              <Box
-                sx={{
-                  color: "white",
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                  m: "0px 0px 20px 0px",
-                  flexWrap: "wrap",
-                }}
-              >
-                <Box display={"flex"} alignItems={"center"} gap={5}>
-                  <Avatar src={google} />
-                  <Typography sx={{ fontSize: { xs: 14, md: 18 } }}>
-                    Lead Software Engineer at Google
-                  </Typography>
-                </Box>
-                <Typography
-                  sx={{
-                    color: "#5FC595",
-                    p: { xs: 1, md: 0 },
-                    fontSize: { xs: 12, md: 16 },
-                  }}
+            <Grid container xs={12} ref={ref1}>
+              {inView1 && (
+                <motion.dev
+                  initial={{ opacity: 0, x: -500 }}
+                  animate={{ opacity: 1, x: 1 }}
+                  transition={{ duration: 0.7 }}
+                  style={{ width: "100%" }}
                 >
-                  Nov 2019 - Present
-                </Typography>
-              </Box>
-              <Typography
-                sx={{ fontSize: { xs: 12, md: 16 }, color: "#71717A" }}
-              >
-                As a Senior Software Engineer at Google, I played a pivotal role
-                in developing innovative solutions for Google's core search
-                <br />
-                algorithms. Collaborating with a dynamic team of engineers, I
-                contributed to the enhancement of search accuracy and
-                efficiency,
-                <br />
-                optimizing user experiences for millions of users worldwide.
-              </Typography>
+                  <Grid
+                    sx={{
+                      border: "solid 1px #71717A",
+                      borderRadius: 2,
+                      p: 3,
+                    }}
+                  >
+                    <Box
+                      sx={{
+                        color: "white",
+                        display: "flex",
+                        justifyContent: "space-between",
+                        alignItems: "center",
+                        m: "0px 0px 20px 0px",
+                        flexWrap: "wrap",
+                      }}
+                    >
+                      <Box display={"flex"} alignItems={"center"} gap={5}>
+                        <Avatar src={google} />
+                        <Typography sx={{ fontSize: { xs: 14, md: 18 } }}>
+                          Lead Software Engineer at Google
+                        </Typography>
+                      </Box>
+                      <Typography
+                        sx={{
+                          color: "#5FC595",
+                          p: { xs: 1, md: 0 },
+                          fontSize: { xs: 12, md: 16 },
+                        }}
+                      >
+                        Nov 2019 - Present
+                      </Typography>
+                    </Box>
+                    <Typography
+                      sx={{ fontSize: { xs: 12, md: 16 }, color: "#71717A" }}
+                    >
+                      As a Senior Software Engineer at Google, I played a
+                      pivotal role in developing innovative solutions for
+                      Google's core search
+                      <br />
+                      algorithms. Collaborating with a dynamic team of
+                      engineers, I contributed to the enhancement of search
+                      accuracy and efficiency,
+                      <br />
+                      optimizing user experiences for millions of users
+                      worldwide.
+                    </Typography>
+                  </Grid>
+                </motion.dev>
+              )}
             </Grid>
-          </Grid>
-          <Grid
-            container
-            xs={12}
-            sx={{ color: "white", gap: 3, justifyContent: "center" }}
-          >
-            <Grid
-              sx={{
-                border: "solid 1px #71717A",
-                borderRadius: 2,
-                p: 3,
-                width: "100%",
-              }}
-            >
-              <Box
-                sx={{
-                  color: "white",
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                  m: "0px 0px 20px 0px",
-                  flexWrap: "wrap",
-                }}
-              >
-                <Box display={"flex"} alignItems={"center"} gap={5}>
-                  <Avatar src={youtube} />
-                  <Typography sx={{ fontSize: { xs: 14, md: 18 } }}>
-                    Software Engineer at Youtube
-                  </Typography>
-                </Box>
-                <Typography
-                  sx={{
-                    color: "#5FC595",
-                    p: { xs: 1, md: 0 },
-                    fontSize: { xs: 12, md: 16 },
-                  }}
+            <Grid container xs={12} ref={ref2}>
+              {inView2 && (
+                <motion.dev
+                  initial={{ opacity: 0, x: 500 }}
+                  animate={{ opacity: 1, x: 1 }}
+                  transition={{ duration: 0.7 }}
+                  style={{ width: "100%" }}
                 >
-                  Jan 2017 - Oct 2019
-                </Typography>
-              </Box>
-              <Typography
-                sx={{ fontSize: { xs: 12, md: 16 }, color: "#71717A" }}
-              >
-                At Youtube, I served as a Software Engineer, focusing on the
-                design and implementation of backend systems for the social
-                <br />
-                media giant's dynamic platform. Working on projects that
-                involved large-scale data processing and user engagement
-                features,
-                <br /> I leveraged my expertise to ensure seamless functionality
-                and scalability.
-              </Typography>
+                  <Grid
+                    container
+                    xs={12}
+                    sx={{ color: "white", gap: 3, justifyContent: "center" }}
+                  >
+                    <Grid
+                      sx={{
+                        border: "solid 1px #71717A",
+                        borderRadius: 2,
+                        p: 3,
+                        width: "100%",
+                      }}
+                    >
+                      <Box
+                        sx={{
+                          color: "white",
+                          display: "flex",
+                          justifyContent: "space-between",
+                          alignItems: "center",
+                          m: "0px 0px 20px 0px",
+                          flexWrap: "wrap",
+                        }}
+                      >
+                        <Box display={"flex"} alignItems={"center"} gap={5}>
+                          <Avatar src={youtube} />
+                          <Typography sx={{ fontSize: { xs: 14, md: 18 } }}>
+                            Software Engineer at Youtube
+                          </Typography>
+                        </Box>
+                        <Typography
+                          sx={{
+                            color: "#5FC595",
+                            p: { xs: 1, md: 0 },
+                            fontSize: { xs: 12, md: 16 },
+                          }}
+                        >
+                          Jan 2017 - Oct 2019
+                        </Typography>
+                      </Box>
+                      <Typography
+                        sx={{ fontSize: { xs: 12, md: 16 }, color: "#71717A" }}
+                      >
+                        At Youtube, I served as a Software Engineer, focusing on
+                        the design and implementation of backend systems for the
+                        social
+                        <br />
+                        media giant's dynamic platform. Working on projects that
+                        involved large-scale data processing and user engagement
+                        features,
+                        <br /> I leveraged my expertise to ensure seamless
+                        functionality and scalability.
+                      </Typography>
+                    </Grid>
+                  </Grid>
+                </motion.dev>
+              )}
             </Grid>
-          </Grid>
-          <Grid
-            container
-            xs={12}
-            sx={{ color: "white", gap: 3, justifyContent: "center" }}
-          >
-            <Grid
-              sx={{
-                border: "solid 1px #71717A",
-                borderRadius: 2,
-                p: 3,
-                width: "100%",
-              }}
-            >
-              <Box
-                sx={{
-                  color: "white",
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                  m: "0px 0px 20px 0px",
-                  flexWrap: "wrap",
-                }}
-              >
-                <Box sx={{ display: "flex", alignItems: "center", gap: 5 }}>
-                  <Avatar src={apple} />
-                  <Typography sx={{ fontSize: { xs: 14, md: 18 } }}>
-                    Junior Software Engineer at Apple
-                  </Typography>
-                </Box>
-                <Typography
-                  sx={{
-                    color: "#5FC595",
-                    p: { xs: 1, md: 0 },
-                    fontSize: { xs: 12, md: 16 },
-                  }}
+            <Grid container xs={12} ref={ref3}>
+              {inView3 && (
+                <motion.dev
+                  initial={{ opacity: 0, x: -500 }}
+                  animate={{ opacity: 1, x: 1 }}
+                  transition={{ duration: 0.7 }}
+                  style={{ width: "100%" }}
                 >
-                  Jan 2016 - Dec 2017
-                </Typography>
-              </Box>
-              <Typography
-                sx={{ fontSize: { xs: 12, md: 16 }, color: "#71717A" }}
-              >
-                During my tenure at Apple, I held the role of Software
-                Architect, where I played a <br />
-                key role in shaping the architecture of mission-critical
-                software projects.Responsible for designing scalable and
-                efficient systems,
-                <br /> I provided technical leadership to a cross-functional
-                team.
-              </Typography>
+                  <Grid
+                    container
+                    xs={12}
+                    sx={{ color: "white", gap: 3, justifyContent: "center" }}
+                  >
+                    <Grid
+                      sx={{
+                        border: "solid 1px #71717A",
+                        borderRadius: 2,
+                        p: 3,
+                        width: "100%",
+                      }}
+                    >
+                      <Box
+                        sx={{
+                          color: "white",
+                          display: "flex",
+                          justifyContent: "space-between",
+                          alignItems: "center",
+                          m: "0px 0px 20px 0px",
+                          flexWrap: "wrap",
+                        }}
+                      >
+                        <Box
+                          sx={{ display: "flex", alignItems: "center", gap: 5 }}
+                        >
+                          <Avatar src={apple} />
+                          <Typography sx={{ fontSize: { xs: 14, md: 18 } }}>
+                            Junior Software Engineer at Apple
+                          </Typography>
+                        </Box>
+                        <Typography
+                          sx={{
+                            color: "#5FC595",
+                            p: { xs: 1, md: 0 },
+                            fontSize: { xs: 12, md: 16 },
+                          }}
+                        >
+                          Jan 2016 - Dec 2017
+                        </Typography>
+                      </Box>
+                      <Typography
+                        sx={{ fontSize: { xs: 12, md: 16 }, color: "#71717A" }}
+                      >
+                        During my tenure at Apple, I held the role of Software
+                        Architect, where I played a <br />
+                        key role in shaping the architecture of mission-critical
+                        software projects.Responsible for designing scalable and
+                        efficient systems,
+                        <br /> I provided technical leadership to a
+                        cross-functional team.
+                      </Typography>
+                    </Grid>
+                  </Grid>
+                </motion.dev>
+              )}
             </Grid>
           </Grid>
         </Grid>
       </Grid>
-      <Grid xs={12} sx={{ mx: { xs: 4, md: 10 } }}>
+      <Grid xs={12} sx={{ mx: { xs: 4, md: 10, xl: 20 } }}>
         <Grid
           container
           xs={12}
@@ -528,11 +596,16 @@ export default function Home() {
               About <span style={{ fontWeight: "bold" }}>Me</span>
             </Typography>
             <Typography sx={{ fontSize: { xs: 12, md: 15 }, color: "#71717A" }}>
-              I am a passionate and self-taught designer specializing in<br />
-              full-stack development (React.js and Node.js). I'm very interested<br />
-              in bringing both the technical and visual aspects of digital<br />
-              products to life. User experience, pixel-perfect design, and<br />
-              writing clear, readable, high- performance code are important to<br />
+              I am a passionate and self-taught designer specializing in
+              <br />
+              full-stack development (React.js and Node.js). I'm very interested
+              <br />
+              in bringing both the technical and visual aspects of digital
+              <br />
+              products to life. User experience, pixel-perfect design, and
+              <br />
+              writing clear, readable, high- performance code are important to
+              <br />
               me.
             </Typography>
             <Typography sx={{ fontSize: { xs: 12, md: 15 }, color: "#71717A" }}>
@@ -562,7 +635,7 @@ export default function Home() {
         </Grid>
       </Grid>
       <Grid xs={12} sx={{ bgcolor: "black", my: 6 }}>
-        <Grid xs={12} sx={{ mx: { xs: 3, md: 10 } }}>
+        <Grid xs={12} sx={{ mx: { xs: 4, md: 10, xl: 20 } }}>
           <Grid container xs={12} sx={{ justifyContent: "center" }}>
             <Typography
               sx={{
@@ -574,153 +647,211 @@ export default function Home() {
               My <span style={{ fontWeight: "bold" }}>Projects</span>
             </Typography>
             <Grid container xs={12} sx={{ gap: 10, py: 10 }}>
-              <Grid container xs={12} sx={{ color: "white" }}>
-                <Grid xs={12} md={6}>
-                  <Avatar
-                    src={image770}
-                    sx={{
-                      width: { xs: "100%", md: "530px" },
-                      height: { xs: 460, md: "390px" },
-                      borderRadius: 10,
-                      p: 0,
-                    }}
-                  />
-                </Grid>
-                <Grid
-                  container
-                  xs={12}
-                  md={6}
-                  sx={{ flexDirection: "column", gap: 3 }}
-                >
-                  <Typography
-                    sx={{
-                      fontSize: { xs: 25, md: 35 },
-                      color: "#5FC595",
-                      fontWeight: "bold",
-                    }}
+              <Grid container xs={12} sx={{ color: "white" }} ref={ref4}>
+                {inView4 && (
+                  <Grid xs={12} md={6}>
+                    <motion.div
+                      initial={{ opacity: 0, x: -500 }}
+                      animate={{ opacity: 1, x: 1 }}
+                      transition={{ duration: 0.7 }}
+                    >
+                      <Avatar
+                        src={image770}
+                        sx={{
+                          width: { xs: "100%", md: "530px" },
+                          height: { xs: 460, md: "390px" },
+                          borderRadius: 10,
+                          p: 0,
+                        }}
+                      />
+                    </motion.div>
+                  </Grid>
+                )}
+                {inView4 && (
+                  <Grid
+                    container
+                    xs={12}
+                    md={6}
+                    sx={{ flexDirection: "column", gap: 3 }}
                   >
-                    01
-                  </Typography>
-                  <Typography
-                    sx={{ fontSize: { xs: 14, md: 28 }, fontWeight: "bold" }}
-                  >
-                    Crypto Screener Application
-                  </Typography>
-                  <Typography
-                    sx={{ fontSize: { xs: 12, md: 16 }, color: "#71717A" }}
-                  >
-                    I'm Evren Shah Lorem Ipsum is simply dummy text of the
-                    printing and <br />
-                    typesetting industry. Lorem Ipsum has been the industry's
-                    standard dummy text ever
-                    <br />
-                    since the 1500s, when an unknown printer took a galley of
-                    type and scrambled it to specimen book.
-                  </Typography>
-                  <GitHubIcon />
-                </Grid>
+                    <motion.div
+                      initial={{ opacity: 0, x: 500 }}
+                      animate={{ opacity: 1, x: 1 }}
+                      transition={{ duration: 0.7 }}
+                    >
+                      <Typography
+                        sx={{
+                          fontSize: { xs: 25, md: 35 },
+                          color: "#5FC595",
+                          fontWeight: "bold",
+                        }}
+                      >
+                        01
+                      </Typography>
+                      <Typography
+                        sx={{
+                          fontSize: { xs: 14, md: 28 },
+                          fontWeight: "bold",
+                        }}
+                      >
+                        Crypto Screener Application
+                      </Typography>
+                      <Typography
+                        sx={{ fontSize: { xs: 12, md: 16 }, color: "#71717A" }}
+                      >
+                        I'm Evren Shah Lorem Ipsum is simply dummy text of the
+                        printing and <br />
+                        typesetting industry. Lorem Ipsum has been the
+                        industry's standard dummy text ever
+                        <br />
+                        since the 1500s, when an unknown printer took a galley
+                        of type and scrambled it to specimen book.
+                      </Typography>
+                      <GitHubIcon />
+                    </motion.div>
+                  </Grid>
+                )}
               </Grid>
               <Grid
                 container
                 xs={12}
                 sx={{ color: "white", flexDirection: "row-reverse" }}
+                ref={ref5}
               >
-                <Grid xs={12} md={6}>
-                  <Avatar
-                    src={image771}
-                    sx={{
-                      width: { xs: "100%", md: "530px" },
-                      height: { xs: 460, md: "390px" },
-                      borderRadius: 10,
-                      p: 0,
-                    }}
-                  />
-                </Grid>
-                <Grid
-                  container
-                  xs={12}
-                  md={6}
-                  sx={{ gap: 3, flexDirection: "column" }}
-                >
-                  <Typography
-                    sx={{
-                      fontSize: { xs: 25, md: 35 },
-                      color: "#5FC595",
-                      fontWeight: "bold",
-                    }}
+                {inView5 && (
+                  <Grid xs={12} md={6}>
+                    <motion.div
+                      initial={{ opacity: 0, x: 600 }}
+                      animate={{ opacity: 1, x: 1 }}
+                      transition={{ duration: 0.7 }}
+                    >
+                      <Avatar
+                        src={image770}
+                        sx={{
+                          width: { xs: "100%", md: "530px" },
+                          height: { xs: 460, md: "390px" },
+                          borderRadius: 10,
+                          p: 0,
+                        }}
+                      />
+                    </motion.div>
+                  </Grid>
+                )}
+                {inView5 && (
+                  <Grid
+                    container
+                    xs={12}
+                    md={6}
+                    sx={{ flexDirection: "column", gap: 3 }}
                   >
-                    02
-                  </Typography>
-                  <Typography
-                    sx={{ fontSize: { xs: 14, md: 28 }, fontWeight: "bold" }}
-                  >
-                    Crypto Screener Application
-                  </Typography>
-                  <Typography
-                    sx={{ fontSize: { xs: 12, md: 16 }, color: "#71717A" }}
-                  >
-                    I'm Evren Shah Lorem Ipsum is simply dummy text of the
-                    printing and <br />
-                    typesetting industry. Lorem Ipsum has been the industry's
-                    standard dummy text ever
-                    <br />
-                    since the 1500s, when an unknown printer took a galley of
-                    type and scrambled it to specimen book.
-                  </Typography>
-                  <GitHubIcon />
-                </Grid>
+                    <motion.div
+                      initial={{ opacity: 0, x: -500 }}
+                      animate={{ opacity: 1, x: 1 }}
+                      transition={{ duration: 0.7 }}
+                    >
+                      <Typography
+                        sx={{
+                          fontSize: { xs: 25, md: 35 },
+                          color: "#5FC595",
+                          fontWeight: "bold",
+                        }}
+                      >
+                        01
+                      </Typography>
+                      <Typography
+                        sx={{
+                          fontSize: { xs: 14, md: 28 },
+                          fontWeight: "bold",
+                        }}
+                      >
+                        Crypto Screener Application
+                      </Typography>
+                      <Typography
+                        sx={{ fontSize: { xs: 12, md: 16 }, color: "#71717A" }}
+                      >
+                        I'm Evren Shah Lorem Ipsum is simply dummy text of the
+                        printing and <br />
+                        typesetting industry. Lorem Ipsum has been the
+                        industry's standard dummy text ever
+                        <br />
+                        since the 1500s, when an unknown printer took a galley
+                        of type and scrambled it to specimen book.
+                      </Typography>
+                      <GitHubIcon />
+                    </motion.div>
+                  </Grid>
+                )}
               </Grid>
-              <Grid container xs={12} sx={{ color: "white" }}>
-                <Grid xs={12} md={6}>
-                  <Avatar
-                    src={image770}
-                    sx={{
-                      width: { xs: "100%", md: "530px" },
-                      height: { xs: 460, md: "390px" },
-                      borderRadius: 10,
-                      p: 0,
-                    }}
-                  />
-                </Grid>
-                <Grid
-                  container
-                  xs={12}
-                  md={6}
-                  sx={{ flexDirection: "column", gap: 3 }}
-                >
-                  <Typography
-                    sx={{
-                      fontSize: { xs: 25, md: 35 },
-                      color: "#5FC595",
-                      fontWeight: "bold",
-                    }}
+              <Grid container xs={12} sx={{ color: "white" }} ref={ref6}>
+                {inView6 && (
+                  <Grid xs={12} md={6}>
+                    <motion.div
+                      initial={{ opacity: 0, x: -500 }}
+                      animate={{ opacity: 1, x: 1 }}
+                      transition={{ duration: 0.7 }}
+                    >
+                      <Avatar
+                        src={image770}
+                        sx={{
+                          width: { xs: "100%", md: "530px" },
+                          height: { xs: 460, md: "390px" },
+                          borderRadius: 10,
+                          p: 0,
+                        }}
+                      />
+                    </motion.div>
+                  </Grid>
+                )}
+                {inView6 && (
+                  <Grid
+                    container
+                    xs={12}
+                    md={6}
+                    sx={{ flexDirection: "column", gap: 3 }}
                   >
-                    03
-                  </Typography>
-                  <Typography
-                    sx={{ fontSize: { xs: 14, md: 28 }, fontWeight: "bold" }}
-                  >
-                    Crypto Screener Application
-                  </Typography>
-                  <Typography
-                    sx={{ fontSize: { xs: 12, md: 16 }, color: "#71717A" }}
-                  >
-                    I'm Evren Shah Lorem Ipsum is simply dummy text of the
-                    printing and <br />
-                    typesetting industry. Lorem Ipsum has been the industry's
-                    standard dummy text ever
-                    <br />
-                    since the 1500s, when an unknown printer took a galley of
-                    type and scrambled it to specimen book.
-                  </Typography>
-                  <GitHubIcon />
-                </Grid>
+                    <motion.div
+                      initial={{ opacity: 0, x: 500 }}
+                      animate={{ opacity: 1, x: 1 }}
+                      transition={{ duration: 0.7 }}
+                    >
+                      <Typography
+                        sx={{
+                          fontSize: { xs: 25, md: 35 },
+                          color: "#5FC595",
+                          fontWeight: "bold",
+                        }}
+                      >
+                        01
+                      </Typography>
+                      <Typography
+                        sx={{
+                          fontSize: { xs: 14, md: 28 },
+                          fontWeight: "bold",
+                        }}
+                      >
+                        Crypto Screener Application
+                      </Typography>
+                      <Typography
+                        sx={{ fontSize: { xs: 12, md: 16 }, color: "#71717A" }}
+                      >
+                        I'm Evren Shah Lorem Ipsum is simply dummy text of the
+                        printing and <br />
+                        typesetting industry. Lorem Ipsum has been the
+                        industry's standard dummy text ever
+                        <br />
+                        since the 1500s, when an unknown printer took a galley
+                        of type and scrambled it to specimen book.
+                      </Typography>
+                      <GitHubIcon />
+                    </motion.div>
+                  </Grid>
+                )}
               </Grid>
             </Grid>
           </Grid>
         </Grid>
       </Grid>
-      <Grid xs={12} sx={{ m: { xs: 4, md: 10 } }}>
+      <Grid xs={12} sx={{ m: { xs: 4, md: 10, xl: 20 } }}>
         <Grid
           container
           xs={12}
@@ -890,11 +1021,19 @@ export default function Home() {
               )}
             </Formik>
           </Grid>
-          <Grid xs={6} sx={{ px: 12 }}>
-            <Typography sx={{ fontWeight: "bold", fontSize: 40 }}>
+          <Grid
+            xs={12}
+            md={6}
+            sx={{ px: { xs: 6, md: 12 }, py: { xs: 10, md: 0 } }}
+          >
+            <Typography
+              sx={{ fontWeight: "bold", fontSize: { xs: 20, md: 40 } }}
+            >
               Let’s <span className="strokeme">talk</span> for
             </Typography>
-            <Typography sx={{ fontWeight: "bold", fontSize: 39 }}>
+            <Typography
+              sx={{ fontWeight: "bold", fontSize: { xs: 20, md: 40 } }}
+            >
               Something special
             </Typography>
             <br />
@@ -905,10 +1044,14 @@ export default function Home() {
             <br />
             <br />
             <br />
-            <Typography sx={{ fontWeight: "bold", fontSize: 25 }}>
+            <Typography
+              sx={{ fontWeight: "bold", fontSize: { xs: 20, md: 30 } }}
+            >
               dev.sinanp@gmail.com
             </Typography>
-            <Typography sx={{ fontWeight: "bold", fontSize: 25 }}>
+            <Typography
+              sx={{ fontWeight: "bold", fontSize: { xs: 20, md: 30 } }}
+            >
               +989046060193
             </Typography>
           </Grid>

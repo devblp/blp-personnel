@@ -16,6 +16,7 @@ export default function index() {
           px: "80px",
           alignItems: "center",
           justifyContent: "space-between",
+          px:{ xs: 4, lg: 3 ,xl:20 }
         }}
       >
         <Avatar src={footerLogo} sx={{ borderRadius: 0, width: "82px" }} />

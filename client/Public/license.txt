@@ -1,0 +1,11 @@
+Model Information:
+* title:	Stylized Hacked PC #SketchfabWeeklyChallenge
+* source:	https://sketchfab.com/3d-models/stylized-hacked-pc-sketchfabweeklychallenge-192ab9d4706f4ffaaf22f9a299289d75
+* author:	ottobite (https://sketchfab.com/ottobite)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Stylized Hacked PC #SketchfabWeeklyChallenge" (https://sketchfab.com/3d-models/stylized-hacked-pc-sketchfabweeklychallenge-192ab9d4706f4ffaaf22f9a299289d75) by ottobite (https://sketchfab.com/ottobite) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
