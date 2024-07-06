@@ -6,14 +6,15 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import React, { useRef,useState,Suspense } from "react";
+import React, { useRef, Suspense } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { motion, useInView } from "framer-motion";
 import "./style.css";
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls } from "@react-three/drei";
-import Scene from "../../../Public/Scene"
+import { Environment, OrbitControls } from "@react-three/drei";
+import Scene from "../../../Public/Scene.jsx";
+import Tilty from "react-tilty";
 
 // img
 import banner from "../../img/Banner.png";
@@ -57,21 +58,26 @@ export default function Home() {
   const inView6 = useInView(ref6, { once: true });
   return (
     <>
-      <Canvas>
-        <Suspense fallback={null}>
-          <Scene/>
-        </Suspense>
-      </Canvas>
       <Grid
         container
         sx={{ flexDirection: "row-reverse", px: { xs: 4, md: 10, xl: 20 } }}
         my={18}
       >
         <Grid item xs={12} md={6}>
-          <Avatar
+          {/* <Avatar
             src={banner}
             sx={{ width: "90%", height: "auto", borderRadius: 0 }}
-          />
+          /> */}
+          <Grid>
+            <Canvas>
+              <ambientLight intensity={2} />
+              <OrbitControls enableZoom={false} />
+              <Suspense fallback={null}>
+                <Scene />
+              </Suspense>
+              <Environment preset="sunset" />
+            </Canvas>
+          </Grid>
         </Grid>
         <Grid item xs={12} md={6}>
           <Grid container>
@@ -212,26 +218,29 @@ export default function Home() {
               nodejs
             </Typography>
           </Grid>
-          <Grid
-            item
-            xs={1.5}
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              border: "solid 2px black",
-              gap: 3,
-              p: 3,
-              boxSizing: "unset",
-            }}
-          >
-            <Avatar src={mongodb} sx={{ borderRadius: 0 }} />
-            <Typography
-              sx={{ fontSize: { xs: 11, md: 14 }, fontWeight: "bold" }}
+          <Tilty max={30} speed={100} >
+            <Grid
+              item
+              xs={1.5}
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                border: "solid 2px black",
+                gap: 3,
+                p: 3,
+                boxSizing: "unset",
+              }}
             >
-              mongodb
-            </Typography>
-          </Grid>
+              <Avatar src={mongodb} sx={{ borderRadius: 0 }} />
+              <Typography
+                sx={{ fontSize: { xs: 11, md: 14 }, fontWeight: "bold" }}
+              >
+                mongodb
+              </Typography>
+            </Grid>
+          </Tilty>
+
           <Grid
             item
             xs={1.5}
