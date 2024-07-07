@@ -12,8 +12,7 @@ import * as Yup from "yup";
 import { motion, useInView } from "framer-motion";
 import "./style.css";
 import { Canvas } from "@react-three/fiber";
-import { Environment, OrbitControls } from "@react-three/drei";
-import Scene from "../../../Public/Scene.jsx";
+import Baner3d from "../../Components/Baner3d"
 import Tilty from "react-tilty";
 
 // img
@@ -64,21 +63,9 @@ export default function Home() {
         my={18}
       >
         <Grid container xs={12} md={6}>
-          {/* <Avatar
-            src={banner}
-            sx={{ width: "90%", height: "auto", borderRadius: 0 }}
-          /> */}
           <Canvas camera={{ position: [0, 3, 4] }} style={{width:"100%",height:"100%"}}>
             {/* // folow mause camera  */}
-
-            <ambientLight intensity={2} />
-            <OrbitControls />
-            <Suspense fallback={null}>
-              <directionalLight position={[10, 10, 10]} />{" "}
-              {/* // folow mause directionalLight position */}
-              <Scene />
-            </Suspense>
-            <Environment preset="sunset" />
+            <Baner3d/>
           </Canvas>
         </Grid>
         <Grid item xs={12} md={6}>

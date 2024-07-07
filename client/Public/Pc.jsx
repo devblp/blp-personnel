@@ -12,7 +12,7 @@ import { useFrame } from '@react-three/fiber'// folow mause
 import { useGLTF } from "@react-three/drei";
 import { easing } from 'maath' // folow mause
 
-export default function Model(props) {
+export default function Pc(props) {
   const { nodes, materials } = useGLTF("/scene.gltf");
   // folow mause seting
   const mesh = useRef();
