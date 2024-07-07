@@ -63,21 +63,23 @@ export default function Home() {
         sx={{ flexDirection: "row-reverse", px: { xs: 4, md: 10, xl: 20 } }}
         my={18}
       >
-        <Grid item xs={12} md={6}>
+        <Grid container xs={12} md={6}>
           {/* <Avatar
             src={banner}
             sx={{ width: "90%", height: "auto", borderRadius: 0 }}
           /> */}
-          <Grid>
-            <Canvas>
-              <ambientLight intensity={2} />
-              <OrbitControls enableZoom={false} />
-              <Suspense fallback={null}>
-                <Scene />
-              </Suspense>
-              <Environment preset="sunset" />
-            </Canvas>
-          </Grid>
+          <Canvas camera={{ position: [0, 3, 4] }} style={{width:"100%",height:"100%"}}>
+            {/* // folow mause camera  */}
+
+            <ambientLight intensity={2} />
+            <OrbitControls />
+            <Suspense fallback={null}>
+              <directionalLight position={[10, 10, 10]} />{" "}
+              {/* // folow mause directionalLight position */}
+              <Scene />
+            </Suspense>
+            <Environment preset="sunset" />
+          </Canvas>
         </Grid>
         <Grid item xs={12} md={6}>
           <Grid container>
@@ -218,7 +220,7 @@ export default function Home() {
               nodejs
             </Typography>
           </Grid>
-          <Tilty max={30} speed={100} >
+          <Tilty max={30} speed={100}>
             <Grid
               item
               xs={1.5}
