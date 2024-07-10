@@ -12,7 +12,7 @@ import * as Yup from "yup";
 import { motion, useInView } from "framer-motion";
 import "./style.css";
 import { Canvas } from "@react-three/fiber";
-import Baner3d from "../../Components/Baner3d"
+import Baner3d from "../../Components/Baner3d";
 import Tilty from "react-tilty";
 
 // img
@@ -59,14 +59,27 @@ export default function Home() {
     <>
       <Grid
         container
-        sx={{ flexDirection: "row-reverse", px: { xs: 4, md: 10, xl: 20 } }}
+        sx={{ flexDirection: "row-reverse", px: { xs: 4, md: 10, xl: 20 },height:500 }}
         my={18}
       >
-        <Grid container xs={12} md={6}>
-          <Canvas camera={{ position: [0, 3, 4] }} style={{width:"100%",height:"100%"}}>
-            {/* // folow mause camera  */}
-            <Baner3d/>
-          </Canvas>
+        <Grid
+          container
+          xs={12}
+          md={6}
+          sx={{ height: { xs: "500px", md: "1000px" } }}
+        >
+          <Box sx={{ width: "100%", height: "100%" }}>
+            <Canvas
+              camera={{ position: [0, 6, 4] }}
+              style={{ width: "100%", height: "100%" }}
+            >
+              <ambientLight intensity={0.5} />
+              <directionalLight position={[10, 10, 5]} />
+              <Baner3d />
+            </Canvas>
+          </Box>
+          <Typography>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita soluta,
+             rem culpa repudiandae doloremque sequi facere necessitatibus similique libero sunt.</Typography>
         </Grid>
         <Grid item xs={12} md={6}>
           <Grid container>

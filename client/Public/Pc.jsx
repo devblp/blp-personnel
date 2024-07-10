@@ -23,15 +23,17 @@ export default function Pc(props) {
   });
   // folow mause seting !end
   return (
-    <group {...props} dispose={null}>
-      <group rotation={[-Math.PI / 20, 0,0]} scale={36.277}>
+    <group {...props} dispose={null} >
+      <group rotation={[-Math.PI /10, 0,0]} scale={36.277} >
         <mesh
           ref={mesh}
+          
           geometry={nodes.Final_lambert1_0.geometry}
           material={materials.lambert1}
           rotation={[Math.PI / 2, 0, 0]}
           scale={0.01}
         />
+         
       </group>
     </group>
   );
