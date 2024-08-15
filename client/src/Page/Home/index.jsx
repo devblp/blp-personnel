@@ -16,7 +16,6 @@ import Baner3d from "../../Components/Baner3d";
 import Tilty from "react-tilty";
 
 // img
-import banner from "../../img/Banner.png";
 import mui from "../../img/icon_mui.png";
 import express from "../../img/icon-express.png";
 import git from "../../img/icon-git.svg";
@@ -32,8 +31,6 @@ import google from "../../img/google.png";
 import youtube from "../../img/youtube.png";
 import imgAbut from "../../img/imgAbut.png";
 import image770 from "../../img/image770.png";
-import image771 from "../../img/image771.png";
-import image772 from "../../img/image772.png";
 
 // icons
 import GitHubIcon from "@mui/icons-material/GitHub";
@@ -43,25 +40,20 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import CodeBanner from "../../Components/TypeBaner";
 
 export default function Home() {
-  const ref1 = useRef(null);
-  const ref2 = useRef(null);
-  const ref3 = useRef(null);
-  const ref4 = useRef(null);
-  const ref5 = useRef(null);
-  const ref6 = useRef(null);
-  const inView1 = useInView(ref1, { once: true });
-  const inView2 = useInView(ref2, { once: true });
-  const inView3 = useInView(ref3, { once: true });
-  const inView4 = useInView(ref4, { once: true });
-  const inView5 = useInView(ref5, { once: true });
-  const inView6 = useInView(ref6, { once: true });
+  const refs = useRef(Array(6).fill().map(() => React.createRef()));
+  const inViews = refs.current.map(ref => useInView(ref, { once: true }));
   return (
     <>
       <Grid
         container
-        sx={{ flexDirection: "row-reverse", px: { xs: 4, md: 10, xl: 20 },height:500 }}
+        sx={{
+          flexDirection: "row-reverse",
+          px: { xs: 4, md: 10, xl: 20 },
+          height: 500,
+        }}
         my={18}
       >
+        {/* model 3d */}
         <Grid
           container
           xs={12}
@@ -78,9 +70,8 @@ export default function Home() {
               <Baner3d />
             </Canvas>
           </Box>
-          <Typography>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita soluta,
-             rem culpa repudiandae doloremque sequi facere necessitatibus similique libero sunt.</Typography>
         </Grid>
+        {/* text header */}
         <Grid item xs={12} md={6}>
           <Grid container>
             <Grid item xs={12} sx={{ display: { xs: "flex", md: "none" } }}>
@@ -107,12 +98,12 @@ export default function Home() {
               <CodeBanner />
             </Grid>
             <Grid item xs={12}>
-              <Typography fontSize={{ xs: 16, md: 20 }}>
-                I'm Sina Nasibparast, and currently working as a full-stack
+              <Typography fontSize={{ xs: 16, md: 16 }}>
+                I'm Sina Nasibparast, and currently working <br />as a full-stack
                 developer.
-                <br /> I have been in this field for one year, specializing in
+                 I have been in this field for one year,<br /> specializing in
                 backend development with Node.js.
-                <br /> Additionally, I work with React.
+               Additionally,<br /> I work with React.
               </Typography>
             </Grid>
             <Grid
@@ -143,12 +134,12 @@ export default function Home() {
       </Grid>
       <Grid
         container
-        xs={12}
         sx={{
           justifyContent: "center",
           alignItems: "center",
           m: "0px 0px 200px 0px",
           gap: 5,
+          mt:30,
           px: { xs: 2, md: 8, xl: 20 },
         }}
       >
@@ -157,73 +148,78 @@ export default function Home() {
         </Typography>
         <Grid
           container
-          xs={12}
-          sx={{ justifyContent: "center", gap: { xs: 2, md: 5 } }}
+          sx={{
+            justifyContent: "center",
+            gap: { xs: 2, md: 3 },
+            flexWrap: "wrap",
+          }}
         >
-          <Grid
-            item
-            xs={1.5}
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              border: "solid 2px black",
-              gap: 3,
-              p: 3,
-              boxSizing: "unset",
-            }}
-          >
-            <Avatar src={javscript} sx={{ borderRadius: 0 }} />
-            <Typography
-              sx={{ fontSize: { xs: 11, md: 14 }, fontWeight: "bold" }}
-            >
-              javascript
-            </Typography>
-          </Grid>
-          <Grid
-            item
-            xs={1.5}
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              border: "solid 2px black",
-              gap: 3,
-              p: 3,
-              boxSizing: "unset",
-            }}
-          >
-            <Avatar src={react} sx={{ borderRadius: 0 }} />
-            <Typography
-              sx={{ fontSize: { xs: 11, md: 14 }, fontWeight: "bold" }}
-            >
-              reactjs
-            </Typography>
-          </Grid>
-          <Grid
-            item
-            xs={1.5}
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              border: "solid 2px black",
-              gap: 3,
-              p: 3,
-              boxSizing: "unset",
-            }}
-          >
-            <Avatar src={nodejs} sx={{ borderRadius: 0 }} />
-            <Typography
-              sx={{ fontSize: { xs: 11, md: 14 }, fontWeight: "bold" }}
-            >
-              nodejs
-            </Typography>
-          </Grid>
-          <Tilty max={30} speed={100}>
+          <Tilty max={30} speed={100} style={{ width: "200px" }}>
             <Grid
               item
-              xs={1.5}
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                border: "solid 2px black",
+                gap: 3,
+                p: 3,
+                boxSizing: "unset",
+              }}
+            >
+              <Avatar src={javscript} sx={{ borderRadius: 0 }} />
+              <Typography
+                sx={{ fontSize: { xs: 11, md: 14 }, fontWeight: "bold" }}
+              >
+                javascript
+              </Typography>
+            </Grid>
+          </Tilty>
+          <Tilty max={30} speed={100} style={{ width: "200px" }}>
+            <Grid
+              item
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                border: "solid 2px black",
+                gap: 3,
+                p: 3,
+                boxSizing: "unset",
+              }}
+            >
+              <Avatar src={react} sx={{ borderRadius: 0 }} />
+              <Typography
+                sx={{ fontSize: { xs: 11, md: 14 }, fontWeight: "bold" }}
+              >
+                reactjs
+              </Typography>
+            </Grid>
+          </Tilty>
+          <Tilty max={30} speed={100} style={{ width: "200px" }}>
+            <Grid
+              item
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                border: "solid 2px black",
+                gap: 3,
+                p: 3,
+                boxSizing: "unset",
+              }}
+            >
+              <Avatar src={nodejs} sx={{ borderRadius: 0 }} />
+              <Typography
+                sx={{ fontSize: { xs: 11, md: 14 }, fontWeight: "bold" }}
+              >
+                nodejs
+              </Typography>
+            </Grid>
+          </Tilty>
+          <Tilty max={30} speed={100} style={{ width: "200px" }}>
+            <Grid
+              item
               sx={{
                 display: "flex",
                 flexDirection: "column",
@@ -242,127 +238,132 @@ export default function Home() {
               </Typography>
             </Grid>
           </Tilty>
-
-          <Grid
-            item
-            xs={1.5}
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              border: "solid 2px black",
-              gap: 3,
-              p: 3,
-              boxSizing: "unset",
-            }}
-          >
-            <Avatar src={tailwindcss} sx={{ borderRadius: 0 }} />
-            <Typography
-              sx={{ fontSize: { xs: 11, md: 14 }, fontWeight: "bold" }}
+          <Tilty max={30} speed={100} style={{ width: "200px" }}>
+            <Grid
+              item
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                border: "solid 2px black",
+                gap: 3,
+                p: 3,
+                boxSizing: "unset",
+              }}
             >
-              tailwind
-            </Typography>
-          </Grid>
-          <Grid
-            item
-            xs={1.5}
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              border: "solid 2px black",
-              gap: 3,
-              p: 3,
-              boxSizing: "unset",
-            }}
-          >
-            <Avatar src={mui} sx={{ borderRadius: 0 }} />
-            <Typography
-              sx={{ fontSize: { xs: 11, md: 14 }, fontWeight: "bold" }}
+              <Avatar src={tailwindcss} sx={{ borderRadius: 0 }} />
+              <Typography
+                sx={{ fontSize: { xs: 11, md: 14 }, fontWeight: "bold" }}
+              >
+                tailwind
+              </Typography>
+            </Grid>
+          </Tilty>
+          <Tilty max={30} speed={100} style={{ width: "200px" }}>
+            <Grid
+              item
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                border: "solid 2px black",
+                gap: 3,
+                p: 3,
+                boxSizing: "unset",
+              }}
             >
-              mui
-            </Typography>
-          </Grid>
-          <Grid
-            item
-            xs={1.5}
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              border: "solid 2px black",
-              gap: 3,
-              p: 3,
-              boxSizing: "unset",
-            }}
-          >
-            <Avatar src={git} sx={{ borderRadius: 0 }} />
-            <Typography
-              sx={{ fontSize: { xs: 11, md: 14 }, fontWeight: "bold" }}
+              <Avatar src={mui} sx={{ borderRadius: 0 }} />
+              <Typography
+                sx={{ fontSize: { xs: 11, md: 14 }, fontWeight: "bold" }}
+              >
+                mui
+              </Typography>
+            </Grid>
+          </Tilty>
+          <Tilty max={30} speed={100} style={{ width: "200px" }}>
+            <Grid
+              item
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                border: "solid 2px black",
+                gap: 3,
+                p: 3,
+                boxSizing: "unset",
+              }}
             >
-              git
-            </Typography>
-          </Grid>
-          <Grid
-            item
-            xs={1.5}
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              border: "solid 2px black",
-              gap: 3,
-              p: 3,
-              boxSizing: "unset",
-            }}
-          >
-            <Avatar src={express} sx={{ borderRadius: 0 }} />
-            <Typography
-              sx={{ fontSize: { xs: 11, md: 14 }, fontWeight: "bold" }}
+              <Avatar src={git} sx={{ borderRadius: 0 }} />
+              <Typography
+                sx={{ fontSize: { xs: 11, md: 14 }, fontWeight: "bold" }}
+              >
+                git
+              </Typography>
+            </Grid>
+          </Tilty>
+          <Tilty max={30} speed={100} style={{ width: "200px" }}>
+            <Grid
+              item
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                border: "solid 2px black",
+                gap: 3,
+                p: 3,
+                boxSizing: "unset",
+              }}
             >
-              express
-            </Typography>
-          </Grid>
-          <Grid
-            item
-            xs={1.5}
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              border: "solid 2px black",
-              gap: 3,
-              p: 3,
-              boxSizing: "unset",
-            }}
-          >
-            <Avatar src={nextjs} sx={{ borderRadius: 0 }} />
-            <Typography
-              sx={{ fontSize: { xs: 11, md: 14 }, fontWeight: "bold" }}
+              <Avatar src={express} sx={{ borderRadius: 0 }} />
+              <Typography
+                sx={{ fontSize: { xs: 11, md: 14 }, fontWeight: "bold" }}
+              >
+                express
+              </Typography>
+            </Grid>
+          </Tilty>
+          <Tilty max={30} speed={100} style={{ width: "200px" }}>
+            <Grid
+              item
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                border: "solid 2px black",
+                gap: 3,
+                p: 3,
+                boxSizing: "unset",
+              }}
             >
-              nextjs
-            </Typography>
-          </Grid>
-          <Grid
-            item
-            xs={1.5}
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              border: "solid 2px black",
-              gap: 3,
-              p: 3,
-              boxSizing: "unset",
-            }}
-          >
-            <Avatar src={typescript} sx={{ borderRadius: 0 }} />
-            <Typography
-              sx={{ fontSize: { xs: 11, md: 14 }, fontWeight: "bold" }}
+              <Avatar src={nextjs} sx={{ borderRadius: 0 }} />
+              <Typography
+                sx={{ fontSize: { xs: 11, md: 14 }, fontWeight: "bold" }}
+              >
+                nextjs
+              </Typography>
+            </Grid>
+          </Tilty>
+          <Tilty max={30} speed={100} style={{ width: "200px" }}>
+            <Grid
+              item
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                border: "solid 2px black",
+                gap: 3,
+                p: 3,
+                boxSizing: "unset",
+              }}
             >
-              typescript
-            </Typography>
-          </Grid>
+              <Avatar src={typescript} sx={{ borderRadius: 0 }} />
+              <Typography
+                sx={{ fontSize: { xs: 11, md: 14 }, fontWeight: "bold" }}
+              >
+                typescript
+              </Typography>
+            </Grid>
+          </Tilty>
         </Grid>
       </Grid>
       <Grid xs={12} sx={{ bgcolor: "black", my: 6, py: 10 }}>
@@ -389,8 +390,8 @@ export default function Home() {
             xs={12}
             sx={{ color: "white", gap: 3, justifyContent: "center" }}
           >
-            <Grid container xs={12} ref={ref1}>
-              {inView1 && (
+            <Grid container xs={12} ref={refs.current[0]}>
+              {inViews[0] && (
                 <motion.dev
                   initial={{ opacity: 0, x: -500 }}
                   animate={{ opacity: 1, x: 1 }}
@@ -448,8 +449,8 @@ export default function Home() {
                 </motion.dev>
               )}
             </Grid>
-            <Grid container xs={12} ref={ref2}>
-              {inView2 && (
+            <Grid container xs={12} ref={refs.current[1]}>
+              {inViews[1] && (
                 <motion.dev
                   initial={{ opacity: 0, x: 500 }}
                   animate={{ opacity: 1, x: 1 }}
@@ -513,8 +514,8 @@ export default function Home() {
                 </motion.dev>
               )}
             </Grid>
-            <Grid container xs={12} ref={ref3}>
-              {inView3 && (
+            <Grid container xs={12} ref={refs.current[2]}>
+              {inViews[2] && (
                 <motion.dev
                   initial={{ opacity: 0, x: -500 }}
                   animate={{ opacity: 1, x: 1 }}
@@ -658,8 +659,8 @@ export default function Home() {
               My <span style={{ fontWeight: "bold" }}>Projects</span>
             </Typography>
             <Grid container xs={12} sx={{ gap: 10, py: 10 }}>
-              <Grid container xs={12} sx={{ color: "white" }} ref={ref4}>
-                {inView4 && (
+              <Grid container xs={12} sx={{ color: "white" }} ref={refs.current[3]}>
+                {inViews[3] && (
                   <Grid xs={12} md={6}>
                     <motion.div
                       initial={{ opacity: 0, x: -500 }}
@@ -678,12 +679,12 @@ export default function Home() {
                     </motion.div>
                   </Grid>
                 )}
-                {inView4 && (
+                {inViews[3] && (
                   <Grid
                     container
                     xs={12}
                     md={6}
-                    sx={{ flexDirection: "column", gap: 3 }}
+                    sx={{ flexDirection: "column" }}
                   >
                     <motion.div
                       initial={{ opacity: 0, x: 500 }}
@@ -708,7 +709,7 @@ export default function Home() {
                         Crypto Screener Application
                       </Typography>
                       <Typography
-                        sx={{ fontSize: { xs: 12, md: 16 }, color: "#71717A" }}
+                        sx={{ fontSize: { xs: 12, md: 16 }, color: "#71717A",py:7 }}
                       >
                         I'm Evren Shah Lorem Ipsum is simply dummy text of the
                         printing and <br />
@@ -727,9 +728,9 @@ export default function Home() {
                 container
                 xs={12}
                 sx={{ color: "white", flexDirection: "row-reverse" }}
-                ref={ref5}
+                ref={refs.current[4]}
               >
-                {inView5 && (
+                {inViews[4] && (
                   <Grid xs={12} md={6}>
                     <motion.div
                       initial={{ opacity: 0, x: 600 }}
@@ -748,7 +749,7 @@ export default function Home() {
                     </motion.div>
                   </Grid>
                 )}
-                {inView5 && (
+                {inViews[4] && (
                   <Grid
                     container
                     xs={12}
@@ -778,7 +779,7 @@ export default function Home() {
                         Crypto Screener Application
                       </Typography>
                       <Typography
-                        sx={{ fontSize: { xs: 12, md: 16 }, color: "#71717A" }}
+                        sx={{ fontSize: { xs: 12, md: 16 }, color: "#71717A",py:7 }}
                       >
                         I'm Evren Shah Lorem Ipsum is simply dummy text of the
                         printing and <br />
@@ -793,8 +794,8 @@ export default function Home() {
                   </Grid>
                 )}
               </Grid>
-              <Grid container xs={12} sx={{ color: "white" }} ref={ref6}>
-                {inView6 && (
+              <Grid container xs={12} sx={{ color: "white" }} ref={refs.current[5]}>
+                {inViews[5] && (
                   <Grid xs={12} md={6}>
                     <motion.div
                       initial={{ opacity: 0, x: -500 }}
@@ -813,7 +814,7 @@ export default function Home() {
                     </motion.div>
                   </Grid>
                 )}
-                {inView6 && (
+                {inViews[5] && (
                   <Grid
                     container
                     xs={12}
@@ -843,7 +844,7 @@ export default function Home() {
                         Crypto Screener Application
                       </Typography>
                       <Typography
-                        sx={{ fontSize: { xs: 12, md: 16 }, color: "#71717A" }}
+                        sx={{ fontSize: { xs: 12, md: 16 }, color: "#71717A",py:7 }}
                       >
                         I'm Evren Shah Lorem Ipsum is simply dummy text of the
                         printing and <br />
