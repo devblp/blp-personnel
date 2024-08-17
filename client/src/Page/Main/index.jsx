@@ -3,10 +3,9 @@ import React, { useState } from "react";
 import { Environment, OrbitControls } from "@react-three/drei";
 import Star from "./Star.jsx";
 import { useNavigate } from "react-router-dom";
-import { color, motion } from "framer-motion";
-import Button from "@mui/material/Button";
+import { motion } from "framer-motion";
 import { Typography } from "@mui/material";
-import zIndex from "@mui/material/styles/zIndex.js";
+
 
 function CameraLogger({ onCameraPositionChange }) {
   const { camera } = useThree();
