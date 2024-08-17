@@ -6,7 +6,7 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import React, { useRef, Suspense } from "react";
+import React, { useRef, Suspense, useLayoutEffect, useEffect } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { motion, useInView } from "framer-motion";
@@ -40,10 +40,20 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import CodeBanner from "../../Components/TypeBaner";
 
 export default function Home() {
-  const refs = useRef(Array(6).fill().map(() => React.createRef()));
-  const inViews = refs.current.map(ref => useInView(ref, { once: true }));
+  const refs = useRef(
+    Array(6)
+      .fill()
+      .map(() => React.createRef())
+  );
+  const inViews = refs.current.map((ref) => useInView(ref, { once: true }));
+
   return (
-    <>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.5 }}
+    >
       <Grid
         container
         sx={{
@@ -99,11 +109,12 @@ export default function Home() {
             </Grid>
             <Grid item xs={12}>
               <Typography fontSize={{ xs: 16, md: 16 }}>
-                I'm Sina Nasibparast, and currently working <br />as a full-stack
-                developer.
-                 I have been in this field for one year,<br /> specializing in
-                backend development with Node.js.
-               Additionally,<br /> I work with React.
+                I'm Sina Nasibparast, and currently working <br />
+                as a full-stack developer. I have been in this field for one
+                year,
+                <br /> specializing in backend development with Node.js.
+                Additionally,
+                <br /> I work with React.
               </Typography>
             </Grid>
             <Grid
@@ -139,7 +150,7 @@ export default function Home() {
           alignItems: "center",
           m: "0px 0px 200px 0px",
           gap: 5,
-          mt:30,
+          mt: 30,
           px: { xs: 2, md: 8, xl: 20 },
         }}
       >
@@ -659,7 +670,12 @@ export default function Home() {
               My <span style={{ fontWeight: "bold" }}>Projects</span>
             </Typography>
             <Grid container xs={12} sx={{ gap: 10, py: 10 }}>
-              <Grid container xs={12} sx={{ color: "white" }} ref={refs.current[3]}>
+              <Grid
+                container
+                xs={12}
+                sx={{ color: "white" }}
+                ref={refs.current[3]}
+              >
                 {inViews[3] && (
                   <Grid xs={12} md={6}>
                     <motion.div
@@ -709,7 +725,11 @@ export default function Home() {
                         Crypto Screener Application
                       </Typography>
                       <Typography
-                        sx={{ fontSize: { xs: 12, md: 16 }, color: "#71717A",py:7 }}
+                        sx={{
+                          fontSize: { xs: 12, md: 16 },
+                          color: "#71717A",
+                          py: 7,
+                        }}
                       >
                         I'm Evren Shah Lorem Ipsum is simply dummy text of the
                         printing and <br />
@@ -779,7 +799,11 @@ export default function Home() {
                         Crypto Screener Application
                       </Typography>
                       <Typography
-                        sx={{ fontSize: { xs: 12, md: 16 }, color: "#71717A",py:7 }}
+                        sx={{
+                          fontSize: { xs: 12, md: 16 },
+                          color: "#71717A",
+                          py: 7,
+                        }}
                       >
                         I'm Evren Shah Lorem Ipsum is simply dummy text of the
                         printing and <br />
@@ -794,7 +818,12 @@ export default function Home() {
                   </Grid>
                 )}
               </Grid>
-              <Grid container xs={12} sx={{ color: "white" }} ref={refs.current[5]}>
+              <Grid
+                container
+                xs={12}
+                sx={{ color: "white" }}
+                ref={refs.current[5]}
+              >
                 {inViews[5] && (
                   <Grid xs={12} md={6}>
                     <motion.div
@@ -844,7 +873,11 @@ export default function Home() {
                         Crypto Screener Application
                       </Typography>
                       <Typography
-                        sx={{ fontSize: { xs: 12, md: 16 }, color: "#71717A",py:7 }}
+                        sx={{
+                          fontSize: { xs: 12, md: 16 },
+                          color: "#71717A",
+                          py: 7,
+                        }}
                       >
                         I'm Evren Shah Lorem Ipsum is simply dummy text of the
                         printing and <br />
@@ -1069,6 +1102,6 @@ export default function Home() {
           </Grid>
         </Grid>
       </Grid>
-    </>
+    </motion.div>
   );
 }
