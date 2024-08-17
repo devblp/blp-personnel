@@ -6,8 +6,8 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import React, { useRef, Suspense, useLayoutEffect, useEffect } from "react";
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import React, { useRef } from "react";
+import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import { motion, useInView } from "framer-motion";
 import "./style.css";
