@@ -13,7 +13,6 @@ export default function index() {
           height: "93px",
           width: "100%",
           bgcolor: "black",
-          px: "80px",
           alignItems: "center",
           justifyContent: "space-between",
           px:{ xs: 4, lg: 3 ,xl:20 }
