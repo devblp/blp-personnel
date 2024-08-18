@@ -25,9 +25,9 @@ import react from "../../img/react.png";
 import tailwindcss from "../../img/icon-tailwindcss.png";
 import typescript from "../../img/icon-typescript.png";
 import nextjs from "../../img/icon-nextjs.png";
-// import apple from "../../img/apple.png";
-// import google from "../../img/google.png";
-// import youtube from "../../img/youtube.png";
+import apple from "../../img/apple.png";
+import google from "../../img/google.png";
+import youtube from "../../img/youtube.png";
 import imgAbut from "../../img/imgAbut.png";
 import image770 from "../../img/image770.png";
 
@@ -69,11 +69,12 @@ export default function Home() {
       >
         {/* model 3d */}
         <Grid container xs={12} md={6}>
-        <Box sx={{ width: '100%', height: '600px',top:0 }}>
+        <Box sx={{ width: '100%', height: '400px',top:0 }}>
             <Canvas
               camera={{ position: [0, 0, 2.2] }}
             >
               <ambientLight intensity={6} />
+              <directionalLight position={[5, 5, 5]} intensity={1} />
               <Rbbp />
             </Canvas>
           </Box>
@@ -167,6 +168,7 @@ export default function Home() {
       <Grid
         container
         sx={{
+          paddingTop:1,
           justifyContent: "center",
           alignItems: "center",
           m: "0px 0px 200px 0px",
@@ -398,7 +400,7 @@ export default function Home() {
           </Tilty>
         </Grid>
       </Grid>
-      {/* <Grid xs={12} sx={{ bgcolor: "black", my: 6, py: 10 }}>
+      <Grid xs={12} sx={{ bgcolor: "black", my: 6, py: 10 }}>
         <Grid
           container
           xs={12}
@@ -613,7 +615,7 @@ export default function Home() {
             </Grid>
           </Grid>
         </Grid>
-      </Grid> */}
+      </Grid>
       <Grid xs={12} sx={{ mx: { xs: 4, md: 10, xl: 20 } }}>
         <Grid
           container
