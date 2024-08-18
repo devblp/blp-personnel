@@ -4,23 +4,31 @@ import { Environment, OrbitControls } from "@react-three/drei";
 import Star from "./Star.jsx";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Typography } from "@mui/material";
+import { Typography, Button } from "@mui/material";
 
-
-function CameraLogger({ onCameraPositionChange }) {
+function CameraLogger({ onCameraPositionChange, moveCamera }) {
   const { camera } = useThree();
   useFrame(() => {
+    if (moveCamera && camera.position.z > 0) {
+      camera.position.y -= 0.004;
+    }
     onCameraPositionChange(camera.position.y);
   });
 }
 
 export default function Index() {
   const [cameraY, setCameraY] = useState(1);
-  const [show, setShow] = useState(true);
+
+  const [moveCamera, setMoveCamera] = useState(false);
   const navigate = useNavigate();
-  if (cameraY < 0.17482461472379535) {
+
+  if (cameraY < 0.10482461472379535) {
     navigate("/home");
   }
+
+  const handleMoveCamera = () => {
+    setMoveCamera(true);
+  };
 
   return (
     <motion.div
@@ -34,16 +42,20 @@ export default function Index() {
           backgroundColor: "black",
           width: "100%",
           height: "100vh",
+          
         }}
       >
-        <Canvas camera={{ position: [0, 1, 0.5] }}>
-          <OrbitControls enablePan={false} enableRotate={false} />
+        <Canvas camera={{ position: [0, 1.3, 1] }}>
+          <OrbitControls enablePan={false} enableRotate={false} enableZoom={false} />
           <ambientLight intensity={0.01} />
           <Star />
           <Environment preset="sunset" />
-          <CameraLogger onCameraPositionChange={setCameraY} />
+          <CameraLogger
+            onCameraPositionChange={setCameraY}
+            moveCamera={moveCamera}
+          />
         </Canvas>
-        {cameraY >= 0.47482461472379535 ? (
+        {cameraY >= 0.57482461472379535 ? (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -54,20 +66,20 @@ export default function Index() {
               sx={{
                 position: "absolute",
                 zIndex: 2,
-                left: "37%",
+                left: "47%",
                 top: "47%",
                 color: "white",
                 fontSize: "50px",
                 fontWeight: "bold",
               }}
             >
-              Sina Nasibparast
+              BlP.
             </Typography>
           </motion.div>
         ) : (
           ""
         )}
-        {cameraY < 0.47482461472379535 ? (
+        {cameraY < 0.57482461472379535 ? (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -78,7 +90,7 @@ export default function Index() {
               sx={{
                 position: "absolute",
                 zIndex: 2,
-                left: "38%",
+                left: "39%",
                 top: "47%",
                 color: "white",
                 fontSize: "50px",
@@ -91,7 +103,7 @@ export default function Index() {
         ) : (
           ""
         )}
-        <motion.div
+        {/* <motion.div
           animate={{ opacity: [1, 0, 1] }}
           transition={{
             duration: 2, 
@@ -110,7 +122,24 @@ export default function Index() {
           >
             Scroll Up
           </span>
-        </motion.div>
+        </motion.div> */}
+        <Button
+          variant="contained"
+          onClick={handleMoveCamera}
+          sx={{
+            position: "absolute",
+            zIndex: 2,
+            left: "5%",
+            bottom: "10%",
+            color:"black",
+            backgroundColor:"white",
+            "&:hover": {
+              backgroundColor: "#787b86",
+              },
+          }}
+        >
+          Go to Home
+        </Button>
       </div>
     </motion.div>
   );
