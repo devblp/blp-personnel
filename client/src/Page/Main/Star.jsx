@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useGLTF, useAnimations } from '@react-three/drei'
 import * as THREE from 'three' // follow mouse
 import { useFrame } from '@react-three/fiber' // follow mouse
@@ -8,7 +8,15 @@ export default function Model(props) {
   const group = useRef()
   const { nodes, materials, animations } = useGLTF('/star.gltf')
   const { actions } = useAnimations(animations, group)
-
+  useEffect(() => {
+    if (actions) {
+      Object.values(actions).forEach((action) => {
+        if (action) {
+          action.play();
+        }
+      });
+    }
+  }, [actions]);
 
   materials['03_-'].color = new THREE.Color(0xff0000) 
   materials['02_-'].color = new THREE.Color(0x00ff00) 

@@ -47,7 +47,7 @@ export default function Index() {
       >
         <Canvas camera={{ position: [0, 1.3, 1] }}>
           <OrbitControls enablePan={false} enableRotate={false} enableZoom={false} />
-          <ambientLight intensity={0.01} />
+          <ambientLight intensity={20} />
           <Star />
           <Environment preset="sunset" />
           <CameraLogger

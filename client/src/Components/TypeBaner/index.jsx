@@ -12,7 +12,7 @@ const CodeBanner = () => {
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;
             <ReactTyped
 
-              strings={["Example", "sina", "test"]}
+              strings={["javascript", "reactjs", "nodejs","typescript"]}
               typeSpeed={50}
               backSpeed={50}
               loop

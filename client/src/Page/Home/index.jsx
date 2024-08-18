@@ -6,13 +6,12 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import { motion, useInView } from "framer-motion";
 import "./style.css";
-import { Canvas } from "@react-three/fiber";
-import Baner3d from "../../Components/Baner3d";
+
 import Tilty from "react-tilty";
 
 // img
@@ -26,9 +25,9 @@ import react from "../../img/react.png";
 import tailwindcss from "../../img/icon-tailwindcss.png";
 import typescript from "../../img/icon-typescript.png";
 import nextjs from "../../img/icon-nextjs.png";
-import apple from "../../img/apple.png";
-import google from "../../img/google.png";
-import youtube from "../../img/youtube.png";
+// import apple from "../../img/apple.png";
+// import google from "../../img/google.png";
+// import youtube from "../../img/youtube.png";
 import imgAbut from "../../img/imgAbut.png";
 import image770 from "../../img/image770.png";
 
@@ -38,6 +37,10 @@ import XIcon from "@mui/icons-material/X";
 import TelegramIcon from "@mui/icons-material/Telegram";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import CodeBanner from "../../Components/TypeBaner";
+
+//import 3d model
+import { Canvas } from "@react-three/fiber";
+import Rbbp from "./Rbbp";
 
 export default function Home() {
   const refs = useRef(
@@ -56,6 +59,7 @@ export default function Home() {
     >
       <Grid
         container
+        xs={12}
         sx={{
           flexDirection: "row-reverse",
           px: { xs: 4, md: 10, xl: 20 },
@@ -64,20 +68,13 @@ export default function Home() {
         my={18}
       >
         {/* model 3d */}
-        <Grid
-          container
-          xs={12}
-          md={6}
-          sx={{ height: { xs: "500px", md: "1000px" } }}
-        >
-          <Box sx={{ width: "100%", height: "100%" }}>
+        <Grid container xs={12} md={6}>
+        <Box sx={{ width: '100%', height: '600px',top:0 }}>
             <Canvas
-              camera={{ position: [0, 6, 4] }}
-              style={{ width: "100%", height: "100%" }}
+              camera={{ position: [0, 0, 2.2] }}
             >
-              <ambientLight intensity={0.5} />
-              <directionalLight position={[10, 10, 5]} />
-              <Baner3d />
+              <ambientLight intensity={6} />
+              <Rbbp />
             </Canvas>
           </Box>
         </Grid>
@@ -127,17 +124,41 @@ export default function Home() {
                 justifyContent: { xs: "center", md: "start" },
               }}
             >
-              <Button sx={{ border: "solid 2px black", height: 50 }}>
-                <GitHubIcon sx={{ color: "black", fontSize: "20px" }} />
+              <Button
+                sx={{
+                  border: "solid 2px black",
+                  color: "black",
+                  ":hover": { bgcolor: "black", color: "white" },
+                }}
+              >
+                <GitHubIcon />
               </Button>
-              <Button sx={{ border: "solid 2px black" }}>
-                <LinkedInIcon sx={{ color: "black", fontSize: "20px" }} />
+              <Button
+                sx={{
+                  border: "solid 2px black",
+                  color: "black",
+                  ":hover": { bgcolor: "black", color: "white" },
+                }}
+              >
+                <LinkedInIcon />
               </Button>
-              <Button sx={{ border: "solid 2px black" }}>
-                <XIcon sx={{ color: "black", fontSize: "20px" }} />
+              <Button
+                sx={{
+                  border: "solid 2px black",
+                  color: "black",
+                  ":hover": { bgcolor: "black", color: "white" },
+                }}
+              >
+                <XIcon />
               </Button>
-              <Button sx={{ border: "solid 2px black" }}>
-                <TelegramIcon sx={{ color: "black", fontSize: "20px" }} />
+              <Button
+                sx={{
+                  border: "solid 2px black",
+                  color: "black",
+                  ":hover": { bgcolor: "black", color: "white" },
+                }}
+              >
+                <TelegramIcon />
               </Button>
             </Grid>
           </Grid>
@@ -377,7 +398,7 @@ export default function Home() {
           </Tilty>
         </Grid>
       </Grid>
-      <Grid xs={12} sx={{ bgcolor: "black", my: 6, py: 10 }}>
+      {/* <Grid xs={12} sx={{ bgcolor: "black", my: 6, py: 10 }}>
         <Grid
           container
           xs={12}
@@ -592,7 +613,7 @@ export default function Home() {
             </Grid>
           </Grid>
         </Grid>
-      </Grid>
+      </Grid> */}
       <Grid xs={12} sx={{ mx: { xs: 4, md: 10, xl: 20 } }}>
         <Grid
           container
