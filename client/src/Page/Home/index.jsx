@@ -6,7 +6,7 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import React, { useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import { motion, useInView } from "framer-motion";
@@ -37,6 +37,7 @@ import XIcon from "@mui/icons-material/X";
 import TelegramIcon from "@mui/icons-material/Telegram";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import CodeBanner from "../../Components/TypeBaner";
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 
 //import 3d model
 import { Canvas } from "@react-three/fiber";
@@ -69,10 +70,8 @@ export default function Home() {
       >
         {/* model 3d */}
         <Grid container xs={12} md={6}>
-        <Box sx={{ width: '100%', height: '400px',top:0 }}>
-            <Canvas
-              camera={{ position: [0, 0, 2.2] }}
-            >
+          <Box sx={{ width: "100%", height: "400px", top: 0 }}>
+            <Canvas camera={{ position: [0, 0, 2.2] }}>
               <ambientLight intensity={6} />
               <directionalLight position={[5, 5, 5]} intensity={1} />
               <Rbbp />
@@ -168,7 +167,7 @@ export default function Home() {
       <Grid
         container
         sx={{
-          paddingTop:1,
+          paddingTop: 1,
           justifyContent: "center",
           alignItems: "center",
           m: "0px 0px 200px 0px",
@@ -400,7 +399,7 @@ export default function Home() {
           </Tilty>
         </Grid>
       </Grid>
-      <Grid xs={12} sx={{ bgcolor: "black", my: 6, py: 10 }}>
+      {/* <Grid xs={12} sx={{ bgcolor: "black", my: 6, py: 10 }}>
         <Grid
           container
           xs={12}
@@ -615,7 +614,7 @@ export default function Home() {
             </Grid>
           </Grid>
         </Grid>
-      </Grid>
+      </Grid> */}
       <Grid xs={12} sx={{ mx: { xs: 4, md: 10, xl: 20 } }}>
         <Grid
           container
@@ -1125,6 +1124,9 @@ export default function Home() {
           </Grid>
         </Grid>
       </Grid>
+      <Box sx={{borderRadius:100,bgcolor:"#787b86",width:"50px",height:"50px",display:"flex",justifyContent:"center",alignItems:"center"}}>
+        <KeyboardArrowUpIcon sx={{color:"white"}}/>
+      </Box>
     </motion.div>
   );
 }
