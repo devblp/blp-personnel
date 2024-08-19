@@ -30,7 +30,7 @@ import apple from "../../img/apple.png";
 import google from "../../img/google.png";
 import youtube from "../../img/youtube.png";
 import imgAbut from "../../img/imgAbut.png";
-import image770 from "../../img/image770.png";
+import image770 from "../../img/Desktop1.jpg";
 
 // icons
 import GitHubIcon from "@mui/icons-material/GitHub";
