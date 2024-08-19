@@ -3,10 +3,11 @@ import {
   Box,
   Button,
   Grid,
+  Link,
   TextField,
   Typography,
 } from "@mui/material";
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import { motion, useInView } from "framer-motion";
@@ -37,20 +38,34 @@ import XIcon from "@mui/icons-material/X";
 import TelegramIcon from "@mui/icons-material/Telegram";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import CodeBanner from "../../Components/TypeBaner";
-import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 
 //import 3d model
 import { Canvas } from "@react-three/fiber";
 import Rbbp from "./Rbbp";
 
 export default function Home() {
+  const [scroll, setScroll] = useState(0);
+  const handleScroll = () => {
+    const position = window.pageYOffset;
+    setScroll(position);
+  };
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
   const refs = useRef(
     Array(6)
       .fill()
       .map(() => React.createRef())
   );
   const inViews = refs.current.map((ref) => useInView(ref, { once: true }));
-
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -124,24 +139,29 @@ export default function Home() {
                 justifyContent: { xs: "center", md: "start" },
               }}
             >
-              <Button
-                sx={{
-                  border: "solid 2px black",
-                  color: "black",
-                  ":hover": { bgcolor: "black", color: "white" },
-                }}
-              >
-                <GitHubIcon />
-              </Button>
-              <Button
-                sx={{
-                  border: "solid 2px black",
-                  color: "black",
-                  ":hover": { bgcolor: "black", color: "white" },
-                }}
-              >
-                <LinkedInIcon />
-              </Button>
+              <Link href="https://github.com/devblp">
+                <Button
+                  sx={{
+                    border: "solid 2px black",
+                    color: "black",
+                    ":hover": { bgcolor: "black", color: "white" },
+                  }}
+                >
+                  <GitHubIcon />
+                </Button>
+              </Link>
+              <Link href="https://www.linkedin.com/in/sina-nasibparst/">
+                <Button
+                  sx={{
+                    border: "solid 2px black",
+                    color: "black",
+                    ":hover": { bgcolor: "black", color: "white" },
+                  }}
+                >
+                  <LinkedInIcon />
+                </Button>
+              </Link>
+
               <Button
                 sx={{
                   border: "solid 2px black",
@@ -151,15 +171,17 @@ export default function Home() {
               >
                 <XIcon />
               </Button>
-              <Button
-                sx={{
-                  border: "solid 2px black",
-                  color: "black",
-                  ":hover": { bgcolor: "black", color: "white" },
-                }}
-              >
-                <TelegramIcon />
-              </Button>
+              <Link href="https://t.me/devBlP">
+                <Button
+                  sx={{
+                    border: "solid 2px black",
+                    color: "black",
+                    ":hover": { bgcolor: "black", color: "white" },
+                  }}
+                >
+                  <TelegramIcon />
+                </Button>
+              </Link>
             </Grid>
           </Grid>
         </Grid>
@@ -1049,39 +1071,45 @@ export default function Home() {
                       >
                         Get In Touch
                       </Button>
-                      <Button
-                        sx={{
-                          bgcolor: "white",
-                          color: "black",
-                          p: 1.5,
-                          border: "solid 1px black",
-                          ":hover": { bgcolor: "black", color: "white" },
-                        }}
-                      >
-                        <LinkedInIcon />
-                      </Button>
-                      <Button
-                        sx={{
-                          bgcolor: "white",
-                          color: "black",
-                          p: 1.5,
-                          border: "solid 1px black",
-                          ":hover": { bgcolor: "black", color: "white" },
-                        }}
-                      >
-                        <GitHubIcon />
-                      </Button>
-                      <Button
-                        sx={{
-                          bgcolor: "white",
-                          color: "black",
-                          p: 1.5,
-                          border: "solid 1px black",
-                          ":hover": { bgcolor: "black", color: "white" },
-                        }}
-                      >
-                        <TelegramIcon />
-                      </Button>
+                      <Link href="https://www.linkedin.com/in/sina-nasibparst/">
+                        <Button
+                          sx={{
+                            bgcolor: "white",
+                            color: "black",
+                            p: 1.5,
+                            border: "solid 1px black",
+                            ":hover": { bgcolor: "black", color: "white" },
+                          }}
+                        >
+                          <LinkedInIcon />
+                        </Button>
+                      </Link>
+                      <Link href="https://github.com/devblp">
+                        <Button
+                          sx={{
+                            bgcolor: "white",
+                            color: "black",
+                            p: 1.5,
+                            border: "solid 1px black",
+                            ":hover": { bgcolor: "black", color: "white" },
+                          }}
+                        >
+                          <GitHubIcon />
+                        </Button>
+                      </Link>
+                      <Link href="https://t.me/devBlP">
+                        <Button
+                          sx={{
+                            bgcolor: "white",
+                            color: "black",
+                            p: 1.5,
+                            border: "solid 1px black",
+                            ":hover": { bgcolor: "black", color: "white" },
+                          }}
+                        >
+                          <TelegramIcon />
+                        </Button>
+                      </Link>
                     </Grid>
                   </Form>
                 </Grid>
@@ -1124,9 +1152,29 @@ export default function Home() {
           </Grid>
         </Grid>
       </Grid>
-      <Box sx={{borderRadius:100,bgcolor:"#787b86",width:"50px",height:"50px",display:"flex",justifyContent:"center",alignItems:"center"}}>
-        <KeyboardArrowUpIcon sx={{color:"white"}}/>
-      </Box>
+      {scroll === 0 ? (
+        ""
+      ) : (
+        <Button
+          onClick={scrollToTop}
+          sx={{
+            borderRadius: 100,
+            bgcolor: "#1f1f1f",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            position: "fixed",
+            bottom: 20,
+            right: 20,
+            ":hover": {
+              bgcolor: "#787b88",
+            },
+          }}
+        >
+          <KeyboardArrowUpIcon sx={{ color: "white" }} />
+        </Button>
+      )}
+      <div style={{ position: "fixed" }}></div>
     </motion.div>
   );
 }
