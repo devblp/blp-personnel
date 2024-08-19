@@ -12,7 +12,7 @@ import headerLogo from "../../img/LOGO.png";
 
 // icon
 import DownloadIcon from "@mui/icons-material/Download";
-import MenuIcon from '@mui/icons-material/Menu';
+import MenuIcon from "@mui/icons-material/Menu";
 
 export default function ButtonAppBar() {
   return (
@@ -24,7 +24,7 @@ export default function ButtonAppBar() {
           boxShadow: 0,
           color: "black",
           m: "20px 0px 0px 0px",
-          px: { xs: 4, md: 10,xl:20 },
+          px: { xs: 4, md: 10, xl: 20 },
         }}
       >
         <Toolbar>
@@ -43,18 +43,58 @@ export default function ButtonAppBar() {
                 src={headerLogo}
               />
             </Grid>
-            <Grid sx={{display:{xs:"flex",md:"none"}}}>
-              <MenuIcon/>
+            <Grid sx={{ display: { xs: "flex", md: "none" } }}>
+              <MenuIcon />
             </Grid>
-            <Grid >
-              <List sx={{display:{xs:"none",md:"flex"}}}>
-                <MenuItem sx={{ fontWeight: "bold" }}>About Me</MenuItem>
-                <MenuItem sx={{ fontWeight: "bold" }}>Skills</MenuItem>
-                <MenuItem sx={{ fontWeight: "bold" }}>Project</MenuItem>
-                <MenuItem sx={{ fontWeight: "bold" }}>Contact me</MenuItem>
+            <Grid>
+              <List sx={{ display: { xs: "none", md: "flex" } }}>
+                <MenuItem
+                  sx={{ fontWeight: "bold" }}
+                  onClick={() => {
+                    window.scrollTo({
+                      top: 1530,
+                      behavior: "smooth",
+                    });
+                  }}
+                >
+                  About Me
+                </MenuItem>
+                <MenuItem
+                  sx={{ fontWeight: "bold" }}
+                  onClick={()=>{
+                    window.scrollTo({
+                      top: 850,
+                      behavior: "smooth",
+                    });
+                  }}
+                >
+                  Skills
+                </MenuItem>
+                <MenuItem
+                  sx={{ fontWeight: "bold" }}
+                  onClick={()=>{
+                    window.scrollTo({
+                      top: 2230,
+                      behavior: "smooth",
+                    });
+                  }}
+                >
+                  Project
+                </MenuItem>
+                <MenuItem
+                  sx={{ fontWeight: "bold" }}
+                  onClick={()=>{
+                    window.scrollTo({
+                      top: 3800,
+                      behavior: "smooth",
+                    });
+                  }}
+                >
+                  Contact me
+                </MenuItem>
               </List>
             </Grid>
-            <Grid sx={{display:{xs:"none",md:"flex"}}}>
+            <Grid sx={{ display: { xs: "none", md: "flex" } }}>
               <Button
                 sx={{
                   bgcolor: "black",
@@ -64,7 +104,6 @@ export default function ButtonAppBar() {
                   ":hover": { bgcolor: "black" },
                   fontWeight: "bold",
                 }}
-             
                 endIcon={<DownloadIcon />}
               >
                 <Typography>Resume</Typography>
