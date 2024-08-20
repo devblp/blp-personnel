@@ -6,3 +6,20 @@ body{
     font-family: "Sora", sans-serif;
     
 }
+/* Custom Scrollbar Styles */
+::-webkit-scrollbar {
+    width: 7px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #191919;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: #636363;
+    border-radius: 10px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+  }
