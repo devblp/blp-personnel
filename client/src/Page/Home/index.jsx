@@ -31,6 +31,8 @@ import google from "../../img/google.png";
 import youtube from "../../img/youtube.png";
 import imgAbut from "../../img/imgAbut.png";
 import cover1 from "../../img/Cover1.jpg";
+import cover2 from "../../img/Cover2.jpg";
+import cover3 from "../../img/Cover3.jpg";
 
 // icons
 import GitHubIcon from "@mui/icons-material/GitHub";
@@ -782,8 +784,11 @@ export default function Home() {
                         panels, ensuring a seamless experience for both
                         customers and administrators.
                       </Typography>
-                      <Link  href="https://github.com/barbodmsd/GameOn" sx={{color:"white"}}>
-                        <GitHubIcon  />
+                      <Link
+                        href="https://github.com/devblp/GameOn-main"
+                        sx={{ color: "white" }}
+                      >
+                        <GitHubIcon />
                       </Link>
                     </motion.div>
                   </Grid>
@@ -803,7 +808,7 @@ export default function Home() {
                       transition={{ duration: 0.7 }}
                     >
                       <Avatar
-                        src={image770}
+                        src={cover2}
                         sx={{
                           width: { xs: "100%", md: "530px" },
                           height: { xs: 460, md: "390px" },
@@ -833,7 +838,7 @@ export default function Home() {
                           fontWeight: "bold",
                         }}
                       >
-                        01
+                        02
                       </Typography>
                       <Typography
                         sx={{
@@ -841,7 +846,7 @@ export default function Home() {
                           fontWeight: "bold",
                         }}
                       >
-                        Crypto Screener Application
+                        BlP-Personnel
                       </Typography>
                       <Typography
                         sx={{
@@ -850,15 +855,19 @@ export default function Home() {
                           py: 7,
                         }}
                       >
-                        I'm Evren Shah Lorem Ipsum is simply dummy text of the
-                        printing and <br />
-                        typesetting industry. Lorem Ipsum has been the
-                        industry's standard dummy text ever
-                        <br />
-                        since the 1500s, when an unknown printer took a galley
-                        of type and scrambled it to specimen book.
+                        BLP Personnel is a dynamic web application designed to
+                        offer an engaging experience with 3D animations and
+                        transitions. The application leverages modern web
+                        technologies to provide a smooth and interactive user
+                        interface. The project integrates Three.js for 3D
+                        graphics and GSAP for advanced animations.
                       </Typography>
-                      <GitHubIcon />
+                      <Link
+                        href="https://github.com/devblp/blp-personnel"
+                        sx={{ color: "white" }}
+                      >
+                        <GitHubIcon />
+                      </Link>
                     </motion.div>
                   </Grid>
                 )}
@@ -877,7 +886,7 @@ export default function Home() {
                       transition={{ duration: 0.7 }}
                     >
                       <Avatar
-                        src={image770}
+                        src={cover3}
                         sx={{
                           width: { xs: "100%", md: "530px" },
                           height: { xs: 460, md: "390px" },
@@ -907,7 +916,7 @@ export default function Home() {
                           fontWeight: "bold",
                         }}
                       >
-                        01
+                        03
                       </Typography>
                       <Typography
                         sx={{
@@ -915,7 +924,7 @@ export default function Home() {
                           fontWeight: "bold",
                         }}
                       >
-                        Crypto Screener Application
+                        Krist
                       </Typography>
                       <Typography
                         sx={{
@@ -924,15 +933,11 @@ export default function Home() {
                           py: 7,
                         }}
                       >
-                        I'm Evren Shah Lorem Ipsum is simply dummy text of the
-                        printing and <br />
-                        typesetting industry. Lorem Ipsum has been the
-                        industry's standard dummy text ever
-                        <br />
-                        since the 1500s, when an unknown printer took a galley
-                        of type and scrambled it to specimen book.
+                        coming son
                       </Typography>
-                      <GitHubIcon />
+                      <Link href="#">
+                        <GitHubIcon />
+                      </Link>
                     </motion.div>
                   </Grid>
                 )}
