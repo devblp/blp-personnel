@@ -935,7 +935,7 @@ export default function Home() {
                       >
                         coming son
                       </Typography>
-                      <Link href="#">
+                      <Link href="#" sx={{ color: "white" }}>
                         <GitHubIcon />
                       </Link>
                     </motion.div>
