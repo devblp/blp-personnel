@@ -30,7 +30,7 @@ import apple from "../../img/apple.png";
 import google from "../../img/google.png";
 import youtube from "../../img/youtube.png";
 import imgAbut from "../../img/imgAbut.png";
-import image770 from "../../img/Desktop1.jpg";
+import cover1 from "../../img/Cover1.jpg";
 
 // icons
 import GitHubIcon from "@mui/icons-material/GitHub";
@@ -728,9 +728,9 @@ export default function Home() {
                       transition={{ duration: 0.7 }}
                     >
                       <Avatar
-                        src={image770}
+                        src={cover1}
                         sx={{
-                          width: { xs: "100%", md: "530px" },
+                          width: { xs: "100%", md: "560px" },
                           height: { xs: 460, md: "390px" },
                           borderRadius: 10,
                           p: 0,
@@ -766,7 +766,7 @@ export default function Home() {
                           fontWeight: "bold",
                         }}
                       >
-                        Crypto Screener Application
+                        GameOne
                       </Typography>
                       <Typography
                         sx={{
@@ -775,15 +775,16 @@ export default function Home() {
                           py: 7,
                         }}
                       >
-                        I'm Evren Shah Lorem Ipsum is simply dummy text of the
-                        printing and <br />
-                        typesetting industry. Lorem Ipsum has been the
-                        industry's standard dummy text ever
-                        <br />
-                        since the 1500s, when an unknown printer took a galley
-                        of type and scrambled it to specimen book.
+                        GameOn is a comprehensive web application designed for
+                        gaming enthusiasts. It offers a robust platform for
+                        users to explore and purchase a variety of gaming
+                        products. The application features both user and admin
+                        panels, ensuring a seamless experience for both
+                        customers and administrators.
                       </Typography>
-                      <GitHubIcon />
+                      <Link  href="https://github.com/barbodmsd/GameOn" sx={{color:"white"}}>
+                        <GitHubIcon  />
+                      </Link>
                     </motion.div>
                   </Grid>
                 )}
