@@ -2,7 +2,7 @@
 
 **A project by [DevBlP](https://github.com/devblp).**
 
-![BLP Personnel Cover](./cover.jpg)
+![BLP Personnel Cover](https://github.com/devblp/blp-personnel/blob/main/Cover2.jpg)
 
 ## Project Overview
 
