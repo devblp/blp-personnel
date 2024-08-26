@@ -74,6 +74,17 @@ export default function ButtonAppBar() {
                   sx={{ fontWeight: "bold" }}
                   onClick={()=>{
                     window.scrollTo({
+                      top: 1600,
+                      behavior: "smooth",
+                    });
+                  }}
+                >
+                  Experience
+                </MenuItem>
+                <MenuItem
+                  sx={{ fontWeight: "bold" }}
+                  onClick={()=>{
+                    window.scrollTo({
                       top: 2230,
                       behavior: "smooth",
                     });
