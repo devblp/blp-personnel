@@ -32,115 +32,115 @@ export default function Index() {
 
   return (
     <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.5 }}
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    exit={{ opacity: 0 }}
+    transition={{ duration: 0.5 }}
+  >
+    <div
+      style={{
+        backgroundColor: "black",
+        width: "100%",
+        height: "100vh",
+        
+      }}
     >
-      <div
-        style={{
-          backgroundColor: "black",
-          width: "100%",
-          height: "100vh",
-          
-        }}
-      >
-        <Canvas camera={{ position: [0, 1.3, 1] }}>
-          <OrbitControls enablePan={false} enableRotate={false} enableZoom={false} />
-          <ambientLight intensity={20} />
-          <Star />
-          <Environment preset="sunset" />
-          <CameraLogger
-            onCameraPositionChange={setCameraY}
-            moveCamera={moveCamera}
-          />
-        </Canvas>
-        {cameraY >= 0.57482461472379535 ? (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <Typography
-              sx={{
-                position: "absolute",
-                zIndex: 2,
-                left: "47%",
-                top: "47%",
-                color: "white",
-                fontSize: "50px",
-                fontWeight: "bold",
-              }}
-            >
-              BlP.
-            </Typography>
-          </motion.div>
-        ) : (
-          ""
-        )}
-        {cameraY < 0.57482461472379535 ? (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <Typography
-              sx={{
-                position: "absolute",
-                zIndex: 2,
-                left: "39%",
-                top: "47%",
-                color: "white",
-                fontSize: "50px",
-                fontWeight: "bold",
-              }}
-            >
-              Enter my world
-            </Typography>
-          </motion.div>
-        ) : (
-          ""
-        )}
-        {/* <motion.div
-          animate={{ opacity: [1, 0, 1] }}
-          transition={{
-            duration: 2, 
-            repeat: Infinity, 
-            ease: "easeInOut", 
-          }}
+      <Canvas camera={{ position: [0, 1.3, 1] }}>
+        <OrbitControls enablePan={false} enableRotate={false} enableZoom={false} />
+        <ambientLight intensity={20} />
+        <Star />
+        <Environment preset="sunset" />
+        <CameraLogger
+          onCameraPositionChange={setCameraY}
+          moveCamera={moveCamera}
+        />
+      </Canvas>
+      {cameraY >= 0.57482461472379535 ? (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.5 }}
         >
-          <span
-            style={{
+          <Typography
+            sx={{
               position: "absolute",
               zIndex: 2,
-              left: "5%",
-              top: "5%",
+              left: "47%",
+              top: "47%",
               color: "white",
+              fontSize: "50px",
+              fontWeight: "bold",
             }}
           >
-            Scroll Up
-          </span>
-        </motion.div> */}
-        <Button
-          variant="contained"
-          onClick={handleMoveCamera}
-          sx={{
+            BlP.
+          </Typography>
+        </motion.div>
+      ) : (
+        ""
+      )}
+      {cameraY < 0.57482461472379535 ? (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <Typography
+            sx={{
+              position: "absolute",
+              zIndex: 2,
+              left: "39%",
+              top: "47%",
+              color: "white",
+              fontSize: "50px",
+              fontWeight: "bold",
+            }}
+          >
+            Enter my world
+          </Typography>
+        </motion.div>
+      ) : (
+        ""
+      )}
+      {/* <motion.div
+        animate={{ opacity: [1, 0, 1] }}
+        transition={{
+          duration: 2, 
+          repeat: Infinity, 
+          ease: "easeInOut", 
+        }}
+      >
+        <span
+          style={{
             position: "absolute",
             zIndex: 2,
             left: "5%",
-            bottom: "10%",
-            color:"black",
-            backgroundColor:"white",
-            "&:hover": {
-              backgroundColor: "#787b86",
-              },
+            top: "5%",
+            color: "white",
           }}
         >
-          Go to Home
-        </Button>
-      </div>
-    </motion.div>
+          Scroll Up
+        </span>
+      </motion.div> */}
+      <Button
+        variant="contained"
+        onClick={handleMoveCamera}
+        sx={{
+          position: "absolute",
+          zIndex: 2,
+          left: "5%",
+          bottom: "10%",
+          color:"black",
+          backgroundColor:"white",
+          "&:hover": {
+            backgroundColor: "#787b86",
+            },
+        }}
+      >
+        Go to Home
+      </Button>
+    </div>
+  </motion.div>
   );
 }
