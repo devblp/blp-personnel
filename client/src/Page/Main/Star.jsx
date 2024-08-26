@@ -6,7 +6,7 @@ import { easing } from 'maath' // follow mouse
 
 export default function Model(props) {
   const group = useRef()
-  const { nodes, materials, animations } = useGLTF('/star.gltf')
+  const { nodes, materials, animations } = useGLTF('/Public/star.gltf')
   const { actions } = useAnimations(animations, group)
   useEffect(() => {
     if (actions) {
