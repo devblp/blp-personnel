@@ -423,7 +423,7 @@ export default function Home() {
           </Tilty>
         </Grid>
       </Grid>
-      {/* <Grid xs={12} sx={{ bgcolor: "black", my: 6, py: 10 }}>
+      <Grid xs={12} sx={{ bgcolor: "black", my: 6, py: 10 }}>
         <Grid
           container
           xs={12}
@@ -638,7 +638,7 @@ export default function Home() {
             </Grid>
           </Grid>
         </Grid>
-      </Grid> */}
+      </Grid>
       <Grid xs={12} sx={{ mx: { xs: 4, md: 10, xl: 20 } }}>
         <Grid
           container
