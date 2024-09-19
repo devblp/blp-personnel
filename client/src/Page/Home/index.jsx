@@ -84,12 +84,18 @@ export default function Home() {
           flexDirection: "row-reverse",
           px: { xs: 4, md: 10, xl: 20 },
           height: 500,
+          gap: { xs: 5, md: 0, xl: 0 },
         }}
         my={18}
       >
         {/* model 3d */}
         <Grid container xs={12} md={6}>
-          <Box sx={{ width: "100%", height: "400px", top: 0 }}>
+          <Box
+            sx={{
+              width: { xs: "100%" },
+              height: { xs: "400px", md: "300px", xl: "400px" },
+            }}
+          >
             <Canvas camera={{ position: [0, 0, 2.2] }}>
               <ambientLight intensity={6} />
               <directionalLight position={[5, 5, 5]} intensity={1} />
@@ -100,22 +106,50 @@ export default function Home() {
         {/* text header */}
         <Grid item xs={12} md={6}>
           <Grid container>
-            <Grid item xs={12} sx={{ display: { xs: "flex", md: "none" } }}>
+            <Grid
+              item
+              xs={12}
+              sx={{
+                justifyContent: { xs: "center" },
+                display: { xs: "flex", md: "none", xl: "none" },
+              }}
+            >
               <CodeBanner />
             </Grid>
-            <Grid item xs={12}>
+            <Grid
+              item
+              xs={12}
+              sx={{
+                justifyContent: { xs: "center" },
+                display: { xs: "flex", md: "block", xl: "block" },
+              }}
+            >
               <Typography fontSize={{ xs: 32, md: 40 }}>
                 Hello I’m
                 <span style={{ fontWeight: "bold" }}> Sina Nasibparast</span>
               </Typography>
             </Grid>
-            <Grid item xs={12}>
+            <Grid
+              item
+              xs={12}
+              sx={{
+                justifyContent: { xs: "center" },
+                display: { xs: "flex", md: "block", xl: "block" },
+              }}
+            >
               <Typography fontSize={{ xs: 32, md: 48 }} fontWeight="bold">
                 <span>Full Stack</span>{" "}
                 <span className="strokeme">Developer</span>{" "}
               </Typography>
             </Grid>
-            <Grid item xs={12}>
+            <Grid
+              item
+              xs={12}
+              sx={{
+                justifyContent: { xs: "center" },
+                display: { xs: "flex", md: "block", xl: "block" },
+              }}
+            >
               <Typography fontSize={{ xs: 32, md: 48 }}>
                 Based In <span style={{ fontWeight: "bold" }}>Iran.</span>
               </Typography>
@@ -123,14 +157,19 @@ export default function Home() {
             <Grid item xs={12} sx={{ display: { xs: "none", md: "flex" } }}>
               <CodeBanner />
             </Grid>
-            <Grid item xs={12}>
+            <Grid
+              item
+              xs={12}
+              sx={{
+                justifyContent: { xs: "center" },
+                display: { xs: "flex", md: "block", xl: "block" },
+              }}
+            >
               <Typography fontSize={{ xs: 16, md: 16 }}>
-                I'm Sina Nasibparast, and currently working <br />
-                as a full-stack developer. I have been in this field for one
-                year,
-                <br /> specializing in backend development with Node.js.
-                Additionally,
-                <br /> I work with React.
+                I'm Sina Nasibparast, and currently working as a full-stack
+                developer. I have been in this field for one year, specializing
+                in backend development with Node.js. Additionally, I work with
+                React.
               </Typography>
             </Grid>
             <Grid
@@ -198,7 +237,7 @@ export default function Home() {
           alignItems: "center",
           m: "0px 0px 200px 0px",
           gap: 5,
-          mt: 30,
+          mt: { xs: 80, md: 30, xl: 30 },
           px: { xs: 2, md: 8, xl: 20 },
         }}
       >
@@ -425,7 +464,7 @@ export default function Home() {
           </Tilty>
         </Grid>
       </Grid>
-      <Grid xs={12} sx={{ bgcolor: "black", my: 6, py: 10 }}>
+      {/* <Grid xs={12} sx={{ bgcolor: "black", my: 6, py: 10 }}>
         <Grid
           container
           xs={12}
@@ -640,7 +679,193 @@ export default function Home() {
             </Grid>
           </Grid>
         </Grid>
+      </Grid> */}
+      <Grid xs={12} sx={{ bgcolor: "black", my: 6, py: 10 }}>
+  <Grid
+    container
+    xs={12}
+    sx={{
+      px: { xs: 4, md: 10, xl: 20 },
+      justifyContent: "center",
+      gap: 5,
+    }}
+  >
+    <Typography
+      sx={{
+        color: "white",
+        fontSize: { xs: 25, md: 45 },
+        m: "0px 0px 30px 0px",
+      }}
+    >
+      My <span style={{ fontWeight: "bold" }}>Skills & Projects</span>
+    </Typography>
+    <Grid
+      container
+      xs={12}
+      sx={{ color: "white", gap: 3, justifyContent: "center" }}
+    >
+      <Grid container xs={12} ref={refs.current[0]}>
+        {inViews[0] && (
+          <motion.dev
+            initial={{ opacity: 0, x: -500 }}
+            animate={{ opacity: 1, x: 1 }}
+            transition={{ duration: 0.7 }}
+            style={{ width: "100%" }}
+          >
+            <Grid
+              sx={{
+                border: "solid 1px #71717A",
+                borderRadius: 2,
+                p: 3,
+              }}
+            >
+              <Box
+                sx={{
+                  color: "white",
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  m: "0px 0px 20px 0px",
+                  flexWrap: "wrap",
+                }}
+              >
+                <Box display={"flex"} alignItems={"center"} gap={5}>
+                  {/* <Avatar src={skillsIcon} /> */}
+                  <Typography sx={{ fontSize: { xs: 14, md: 18 } }}>
+                    Skills Overview
+                  </Typography>
+                </Box>
+              </Box>
+              <Typography
+                sx={{ fontSize: { xs: 12, md: 16 }, color: "#71717A" }}
+              >
+                - Proficient in JavaScript, React.js, Node.js, and MongoDB.
+                <br />
+                - Experience with modern web development techniques such as
+                RESTful APIs, and responsive design.
+                <br />
+                - Familiar with Git, Agile methodologies, and Test-Driven
+                Development (TDD).
+              </Typography>
+            </Grid>
+          </motion.dev>
+        )}
       </Grid>
+      <Grid container xs={12} ref={refs.current[1]}>
+        {inViews[1] && (
+          <motion.dev
+            initial={{ opacity: 0, x: 500 }}
+            animate={{ opacity: 1, x: 1 }}
+            transition={{ duration: 0.7 }}
+            style={{ width: "100%" }}
+          >
+            <Grid
+              container
+              xs={12}
+              sx={{ color: "white", gap: 3, justifyContent: "center" }}
+            >
+              <Grid
+                sx={{
+                  border: "solid 1px #71717A",
+                  borderRadius: 2,
+                  p: 3,
+                  width: "100%",
+                }}
+              >
+                <Box
+                  sx={{
+                    color: "white",
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                    m: "0px 0px 20px 0px",
+                    flexWrap: "wrap",
+                  }}
+                >
+                  <Box display={"flex"} alignItems={"center"} gap={5}>
+                    {/* <Avatar src={projectIcon} /> */}
+                    <Typography sx={{ fontSize: { xs: 14, md: 18 } }}>
+                      Notable Projects
+                    </Typography>
+                  </Box>
+                </Box>
+                <Typography
+                  sx={{ fontSize: { xs: 12, md: 16 }, color: "#71717A" }}
+                >
+                  - Developed a dynamic web application using React.js and
+                  Node.js for a personal portfolio website.
+                  <br />
+                  - Built a REST API for a task management app with Express.js
+                  and MongoDB.
+                  <br />
+                  - Implemented responsive UI components using Material-UI and
+                  Tailwind CSS.
+                </Typography>
+              </Grid>
+            </Grid>
+          </motion.dev>
+        )}
+      </Grid>
+      <Grid container xs={12} ref={refs.current[2]}>
+        {inViews[2] && (
+          <motion.dev
+            initial={{ opacity: 0, x: -500 }}
+            animate={{ opacity: 1, x: 1 }}
+            transition={{ duration: 0.7 }}
+            style={{ width: "100%" }}
+          >
+            <Grid
+              container
+              xs={12}
+              sx={{ color: "white", gap: 3, justifyContent: "center" }}
+            >
+              <Grid
+                sx={{
+                  border: "solid 1px #71717A",
+                  borderRadius: 2,
+                  p: 3,
+                  width: "100%",
+                }}
+              >
+                <Box
+                  sx={{
+                    color: "white",
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                    m: "0px 0px 20px 0px",
+                    flexWrap: "wrap",
+                  }}
+                >
+                  <Box
+                    sx={{ display: "flex", alignItems: "center", gap: 5 }}
+                  >
+                    {/* <Avatar src={achievementIcon} /> */}
+                    <Typography sx={{ fontSize: { xs: 14, md: 18 } }}>
+                      Achievements
+                    </Typography>
+                  </Box>
+                </Box>
+                <Typography
+                  sx={{ fontSize: { xs: 12, md: 16 }, color: "#71717A" }}
+                >
+                  - Completed Full Stack Developer certification from Mahart.
+                  <br />
+                  - Built and deployed multiple personal projects using MERN
+                  stack.
+                  <br />
+                  - Achieved proficiency in building RESTful.
+                </Typography>
+              </Grid>
+            </Grid>
+          </motion.dev>
+        )}
+      </Grid>
+    </Grid>
+  </Grid>
+</Grid>
+
+
       <Grid xs={12} sx={{ mx: { xs: 4, md: 10, xl: 20 } }}>
         <Grid
           container
@@ -785,7 +1010,7 @@ export default function Home() {
                         products. The application features both user and admin
                         panels, ensuring a seamless experience for both
                         customers and administrators.
-                        <Box display={"flex"}>
+                        <Box display={"flex"} flexWrap={"wrap"}>
                           <Box
                             sx={{
                               width: "60px",
@@ -813,78 +1038,93 @@ export default function Home() {
                             }}
                           >
                             <Typography sx={{ color: "black" }}>
-                            Next.js
+                              Next.js
                             </Typography>
                           </Box>
                           <Box
-                          sx={{
-                            width: "70px",
-                            height: "25px",
-                            bgcolor: "#9E9E9E",
-                            borderRadius: "6px",
-                            display:"flex",
-                            justifyContent:"center",
-                            m:"20px 5px",
-                            ":hover":{
-                              bgcolor:"white",
-                            }
-                            
-                          }}
-                          unmountOnExit  
-                        >
-                          <Typography sx={{color:"black",}}>Node.js</Typography>
-                        </Box>
-                        <Box
-                          sx={{
-                            height: "25px",
-                            bgcolor: "#9E9E9E",
-                            borderRadius: "6px",
-                            display:"flex",
-                            justifyContent:"center",
-                            m:"20px 5px"
-                          }}
-                        >
-                          <Typography sx={{color:"black",width: "100%",m:"0px 10px"}}>tailwindcss</Typography>
-                        </Box>
-                        <Box
-                          sx={{
-                            width: "60px",
-                            height: "25px",
-                            bgcolor: "#9E9E9E",
-                            borderRadius: "6px",
-                            display:"flex",
-                            justifyContent:"center",
-                            m:"20px 5px"
-                          }}
-                        >
-                          <Typography sx={{color:"black",}}>Motion</Typography>
-                        </Box>
-                        <Box
-                          sx={{
-                            width: "60px",
-                            height: "25px",
-                            bgcolor: "#9E9E9E",
-                            borderRadius: "6px",
-                            display:"flex",
-                            justifyContent:"center",
-                            m:"20px 5px"
-                          }}
-                        >
-                          <Typography sx={{color:"black",}}>Swiper</Typography>
-                        </Box>
-                        <Box
-                          sx={{
-                            width: "60px",
-                            height: "25px",
-                            bgcolor: "#9E9E9E",
-                            borderRadius: "6px",
-                            display:"flex",
-                            justifyContent:"center",
-                            m:"20px 5px"
-                          }}
-                        >
-                          <Typography sx={{color:"black",}}>Atropos</Typography>
-                        </Box>
+                            sx={{
+                              width: "70px",
+                              height: "25px",
+                              bgcolor: "#9E9E9E",
+                              borderRadius: "6px",
+                              display: "flex",
+                              justifyContent: "center",
+                              m: "20px 5px",
+                              ":hover": {
+                                bgcolor: "white",
+                              },
+                            }}
+                            unmountOnExit
+                          >
+                            <Typography sx={{ color: "black" }}>
+                              Node.js
+                            </Typography>
+                          </Box>
+                          <Box
+                            sx={{
+                              height: "25px",
+                              bgcolor: "#9E9E9E",
+                              borderRadius: "6px",
+                              display: "flex",
+                              justifyContent: "center",
+                              m: "20px 5px",
+                            }}
+                          >
+                            <Typography
+                              sx={{
+                                color: "black",
+                                width: "100%",
+                                m: "0px 10px",
+                              }}
+                            >
+                              tailwindcss
+                            </Typography>
+                          </Box>
+                          <Box
+                            sx={{
+                              width: "60px",
+                              height: "25px",
+                              bgcolor: "#9E9E9E",
+                              borderRadius: "6px",
+                              display: "flex",
+                              justifyContent: "center",
+                              m: "20px 5px",
+                            }}
+                          >
+                            <Typography sx={{ color: "black" }}>
+                              Motion
+                            </Typography>
+                          </Box>
+                          <Box
+                            sx={{
+                              width: "60px",
+                              height: "25px",
+                              bgcolor: "#9E9E9E",
+                              borderRadius: "6px",
+                              display: "flex",
+                              justifyContent: "center",
+                              m: "20px 5px",
+                            }}
+                          >
+                            <Typography sx={{ color: "black" }}>
+                              Swiper
+                            </Typography>
+                          </Box>
+                          <Box
+                            sx={{
+                              width: "60px",
+                              height: "25px",
+                              bgcolor: "#9E9E9E",
+                              borderRadius: "6px",
+                              display: "flex",
+                              justifyContent: "center",
+                              m: "20px 5px",
+                            }}
+                          >
+                            <Typography sx={{ color: "black" }}>
+                              Atropos
+                            </Typography>
+                          </Box>
                         </Box>
                       </Typography>
                       <Link
@@ -992,53 +1232,56 @@ export default function Home() {
                             }}
                           >
                             <Typography sx={{ color: "black" }}>
-                            Vite
+                              Vite
                             </Typography>
                           </Box>
                           <Box
-                          sx={{
-                            width: "70px",
-                            height: "25px",
-                            bgcolor: "#9E9E9E",
-                            borderRadius: "6px",
-                            display:"flex",
-                            justifyContent:"center",
-                            m:"20px 5px",
-                            ":hover":{
-                              bgcolor:"white",
-                            }
-                            
-                          }}
-                          unmountOnExit  
-                        >
-                          <Typography sx={{color:"black",}}>Three.js</Typography>
-                        </Box>
-                        <Box
-                          sx={{
-                            width: "60px",
-                            height: "25px",
-                            bgcolor: "#9E9E9E",
-                            borderRadius: "6px",
-                            display:"flex",
-                            justifyContent:"center",
-                            m:"20px 5px"
-                          }}
-                        >
-                          <Typography sx={{color:"black",}}>MUI</Typography>
-                        </Box>
-                        <Box
-                          sx={{
-                            width: "60px",
-                            height: "25px",
-                            bgcolor: "#9E9E9E",
-                            borderRadius: "6px",
-                            display:"flex",
-                            justifyContent:"center",
-                            m:"20px 5px"
-                          }}
-                        >
-                          <Typography sx={{color:"black",}}>Motion</Typography>
-                        </Box>
+                            sx={{
+                              width: "70px",
+                              height: "25px",
+                              bgcolor: "#9E9E9E",
+                              borderRadius: "6px",
+                              display: "flex",
+                              justifyContent: "center",
+                              m: "20px 5px",
+                              ":hover": {
+                                bgcolor: "white",
+                              },
+                            }}
+                            unmountOnExit
+                          >
+                            <Typography sx={{ color: "black" }}>
+                              Three.js
+                            </Typography>
+                          </Box>
+                          <Box
+                            sx={{
+                              width: "60px",
+                              height: "25px",
+                              bgcolor: "#9E9E9E",
+                              borderRadius: "6px",
+                              display: "flex",
+                              justifyContent: "center",
+                              m: "20px 5px",
+                            }}
+                          >
+                            <Typography sx={{ color: "black" }}>MUI</Typography>
+                          </Box>
+                          <Box
+                            sx={{
+                              width: "60px",
+                              height: "25px",
+                              bgcolor: "#9E9E9E",
+                              borderRadius: "6px",
+                              display: "flex",
+                              justifyContent: "center",
+                              m: "20px 5px",
+                            }}
+                          >
+                            <Typography sx={{ color: "black" }}>
+                              Motion
+                            </Typography>
+                          </Box>
                         </Box>
                       </Typography>
 
@@ -1142,39 +1385,48 @@ export default function Home() {
                             }}
                           >
                             <Typography sx={{ color: "black" }}>
-                            Next.js
+                              Next.js
                             </Typography>
                           </Box>
                           <Box
-                          sx={{
-                            width: "70px",
-                            height: "25px",
-                            bgcolor: "#9E9E9E",
-                            borderRadius: "6px",
-                            display:"flex",
-                            justifyContent:"center",
-                            m:"20px 5px",
-                            ":hover":{
-                              bgcolor:"white",
-                            }
-                            
-                          }}
-                          unmountOnExit  
-                        >
-                          <Typography sx={{color:"black",}}>Node.js</Typography>
-                        </Box>
-                        <Box
-                          sx={{
-                            height: "25px",
-                            bgcolor: "#9E9E9E",
-                            borderRadius: "6px",
-                            display:"flex",
-                            justifyContent:"center",
-                            m:"20px 5px"
-                          }}
-                        >
-                          <Typography sx={{color:"black",width: "100%",m:"0px 10px"}}>tailwindcss</Typography>
-                        </Box>
+                            sx={{
+                              width: "70px",
+                              height: "25px",
+                              bgcolor: "#9E9E9E",
+                              borderRadius: "6px",
+                              display: "flex",
+                              justifyContent: "center",
+                              m: "20px 5px",
+                              ":hover": {
+                                bgcolor: "white",
+                              },
+                            }}
+                            unmountOnExit
+                          >
+                            <Typography sx={{ color: "black" }}>
+                              Node.js
+                            </Typography>
+                          </Box>
+                          <Box
+                            sx={{
+                              height: "25px",
+                              bgcolor: "#9E9E9E",
+                              borderRadius: "6px",
+                              display: "flex",
+                              justifyContent: "center",
+                              m: "20px 5px",
+                            }}
+                          >
+                            <Typography
+                              sx={{
+                                color: "black",
+                                width: "100%",
+                                m: "0px 10px",
+                              }}
+                            >
+                              tailwindcss
+                            </Typography>
+                          </Box>
                         </Box>
                       </Typography>
                       <Link href="#" sx={{ color: "white" }}>
@@ -1413,7 +1665,7 @@ export default function Home() {
             alignItems: "center",
             position: "fixed",
             bottom: 20,
-            right: 20,
+            right: { xs: 5, xl: 20 },
             ":hover": {
               bgcolor: "#787b88",
             },
