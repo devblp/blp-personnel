@@ -33,8 +33,10 @@ export default function ButtonAppBar() {
             xs={12}
             sx={{
               flexDirection: "row",
-              justifyContent: "space-between",
-              alignItems: "center",
+              justifyContent:{xs:"center",md:"space-between",xl:"space-between"},
+              alignItems:"center" ,
+              
+              
             }}
           >
             <Grid>
@@ -42,9 +44,6 @@ export default function ButtonAppBar() {
                 sx={{ borderRadius: 0, width: "82px" }}
                 src={headerLogo}
               />
-            </Grid>
-            <Grid sx={{ display: { xs: "flex", md: "none" } }}>
-              <MenuIcon />
             </Grid>
             <Grid>
               <List sx={{ display: { xs: "none", md: "flex" } }}>
@@ -79,7 +78,7 @@ export default function ButtonAppBar() {
                     });
                   }}
                 >
-                  Experience
+                  Skills&Projects
                 </MenuItem>
                 <MenuItem
                   sx={{ fontWeight: "bold" }}
