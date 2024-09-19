@@ -16,10 +16,8 @@ export default function Model(props) {
   const { actions } = useAnimations(animations, group)
   useEffect(() => {
     if (actions) {
-      // نمایش نام انیمیشن‌ها برای دیباگ
       console.log('Available actions:', actions);
 
-      // اجرای تمام انیمیشن‌ها (در صورتی که موجود باشند)
       Object.values(actions).forEach((action) => {
         if (action) {
           action.play();
