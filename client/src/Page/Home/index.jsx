@@ -5,12 +5,14 @@ import {
   Grid,
   Link,
   TextField,
-  Typography, FormControlLabel, Checkbox,
+  Typography,
+  FormControlLabel,
+  Checkbox,
 } from "@mui/material";
 import React, { useEffect, useRef, useState } from "react";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
-import { motion, useInView } from "framer-motion";
+import { motion, transform, useInView } from "framer-motion";
 import "./style.css";
 
 import Tilty from "react-tilty";
@@ -783,6 +785,107 @@ export default function Home() {
                         products. The application features both user and admin
                         panels, ensuring a seamless experience for both
                         customers and administrators.
+                        <Box display={"flex"}>
+                          <Box
+                            sx={{
+                              width: "60px",
+                              height: "25px",
+                              bgcolor: "#9E9E9E",
+                              borderRadius: "6px",
+                              display: "flex",
+                              justifyContent: "center",
+                              m: "20px 5px",
+                            }}
+                          >
+                            <Typography sx={{ color: "black" }}>
+                              React
+                            </Typography>
+                          </Box>
+                          <Box
+                            sx={{
+                              width: "60px",
+                              height: "25px",
+                              bgcolor: "#9E9E9E",
+                              borderRadius: "6px",
+                              display: "flex",
+                              justifyContent: "center",
+                              m: "20px 5px",
+                            }}
+                          >
+                            <Typography sx={{ color: "black" }}>
+                            Next.js
+                            </Typography>
+                          </Box>
+                          <Box
+                          sx={{
+                            width: "70px",
+                            height: "25px",
+                            bgcolor: "#9E9E9E",
+                            borderRadius: "6px",
+                            display:"flex",
+                            justifyContent:"center",
+                            m:"20px 5px",
+                            ":hover":{
+                              bgcolor:"white",
+                            }
+                            
+                          }}
+                          unmountOnExit  
+                        >
+                          <Typography sx={{color:"black",}}>Node.js</Typography>
+                        </Box>
+                        <Box
+                          sx={{
+                            height: "25px",
+                            bgcolor: "#9E9E9E",
+                            borderRadius: "6px",
+                            display:"flex",
+                            justifyContent:"center",
+                            m:"20px 5px"
+                          }}
+                        >
+                          <Typography sx={{color:"black",width: "100%",m:"0px 10px"}}>tailwindcss</Typography>
+                        </Box>
+                        <Box
+                          sx={{
+                            width: "60px",
+                            height: "25px",
+                            bgcolor: "#9E9E9E",
+                            borderRadius: "6px",
+                            display:"flex",
+                            justifyContent:"center",
+                            m:"20px 5px"
+                          }}
+                        >
+                          <Typography sx={{color:"black",}}>Motion</Typography>
+                        </Box>
+                        <Box
+                          sx={{
+                            width: "60px",
+                            height: "25px",
+                            bgcolor: "#9E9E9E",
+                            borderRadius: "6px",
+                            display:"flex",
+                            justifyContent:"center",
+                            m:"20px 5px"
+                          }}
+                        >
+                          <Typography sx={{color:"black",}}>Swiper</Typography>
+                        </Box>
+                        <Box
+                          sx={{
+                            width: "60px",
+                            height: "25px",
+                            bgcolor: "#9E9E9E",
+                            borderRadius: "6px",
+                            display:"flex",
+                            justifyContent:"center",
+                            m:"20px 5px"
+                          }}
+                        >
+                          <Typography sx={{color:"black",}}>Atropos</Typography>
+                        </Box>
+                        </Box>
                       </Typography>
                       <Link
                         href="https://github.com/devblp/GameOn-main"
@@ -861,7 +964,84 @@ export default function Home() {
                         technologies to provide a smooth and interactive user
                         interface. The project integrates Three.js for 3D
                         graphics and GSAP for advanced animations.
+                        <Box display={"flex"}>
+                          <Box
+                            sx={{
+                              width: "60px",
+                              height: "25px",
+                              bgcolor: "#9E9E9E",
+                              borderRadius: "6px",
+                              display: "flex",
+                              justifyContent: "center",
+                              m: "20px 5px",
+                            }}
+                          >
+                            <Typography sx={{ color: "black" }}>
+                              React
+                            </Typography>
+                          </Box>
+                          <Box
+                            sx={{
+                              width: "60px",
+                              height: "25px",
+                              bgcolor: "#9E9E9E",
+                              borderRadius: "6px",
+                              display: "flex",
+                              justifyContent: "center",
+                              m: "20px 5px",
+                            }}
+                          >
+                            <Typography sx={{ color: "black" }}>
+                            Vite
+                            </Typography>
+                          </Box>
+                          <Box
+                          sx={{
+                            width: "70px",
+                            height: "25px",
+                            bgcolor: "#9E9E9E",
+                            borderRadius: "6px",
+                            display:"flex",
+                            justifyContent:"center",
+                            m:"20px 5px",
+                            ":hover":{
+                              bgcolor:"white",
+                            }
+                            
+                          }}
+                          unmountOnExit  
+                        >
+                          <Typography sx={{color:"black",}}>Three.js</Typography>
+                        </Box>
+                        <Box
+                          sx={{
+                            width: "60px",
+                            height: "25px",
+                            bgcolor: "#9E9E9E",
+                            borderRadius: "6px",
+                            display:"flex",
+                            justifyContent:"center",
+                            m:"20px 5px"
+                          }}
+                        >
+                          <Typography sx={{color:"black",}}>MUI</Typography>
+                        </Box>
+                        <Box
+                          sx={{
+                            width: "60px",
+                            height: "25px",
+                            bgcolor: "#9E9E9E",
+                            borderRadius: "6px",
+                            display:"flex",
+                            justifyContent:"center",
+                            m:"20px 5px"
+                          }}
+                        >
+                          <Typography sx={{color:"black",}}>Motion</Typography>
+                        </Box>
+                        </Box>
                       </Typography>
+
                       <Link
                         href="https://github.com/devblp/blp-personnel"
                         sx={{ color: "white" }}
@@ -934,6 +1114,68 @@ export default function Home() {
                         }}
                       >
                         coming son
+                        <Box display={"flex"}>
+                          <Box
+                            sx={{
+                              width: "60px",
+                              height: "25px",
+                              bgcolor: "#9E9E9E",
+                              borderRadius: "6px",
+                              display: "flex",
+                              justifyContent: "center",
+                              m: "20px 5px",
+                            }}
+                          >
+                            <Typography sx={{ color: "black" }}>
+                              React
+                            </Typography>
+                          </Box>
+                          <Box
+                            sx={{
+                              width: "60px",
+                              height: "25px",
+                              bgcolor: "#9E9E9E",
+                              borderRadius: "6px",
+                              display: "flex",
+                              justifyContent: "center",
+                              m: "20px 5px",
+                            }}
+                          >
+                            <Typography sx={{ color: "black" }}>
+                            Next.js
+                            </Typography>
+                          </Box>
+                          <Box
+                          sx={{
+                            width: "70px",
+                            height: "25px",
+                            bgcolor: "#9E9E9E",
+                            borderRadius: "6px",
+                            display:"flex",
+                            justifyContent:"center",
+                            m:"20px 5px",
+                            ":hover":{
+                              bgcolor:"white",
+                            }
+                            
+                          }}
+                          unmountOnExit  
+                        >
+                          <Typography sx={{color:"black",}}>Node.js</Typography>
+                        </Box>
+                        <Box
+                          sx={{
+                            height: "25px",
+                            bgcolor: "#9E9E9E",
+                            borderRadius: "6px",
+                            display:"flex",
+                            justifyContent:"center",
+                            m:"20px 5px"
+                          }}
+                        >
+                          <Typography sx={{color:"black",width: "100%",m:"0px 10px"}}>tailwindcss</Typography>
+                        </Box>
+                        </Box>
                       </Typography>
                       <Link href="#" sx={{ color: "white" }}>
                         <GitHubIcon />
