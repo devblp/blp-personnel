@@ -70,6 +70,7 @@ export default function Home() {
       .map(() => React.createRef())
   );
   const inViews = refs.current.map((ref) => useInView(ref, { once: true }));
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -151,7 +152,7 @@ export default function Home() {
               }}
             >
               <Typography fontSize={{ xs: 32, md: 48 }}>
-                Based In <span style={{ fontWeight: "bold" }}>Iran.</span>
+                Based In <span style={{ fontWeight: "bold" }}>World.</span>
               </Typography>
             </Grid>
             <Grid item xs={12} sx={{ display: { xs: "none", md: "flex" } }}>
@@ -681,190 +682,188 @@ export default function Home() {
         </Grid>
       </Grid> */}
       <Grid xs={12} sx={{ bgcolor: "black", my: 6, py: 10 }}>
-  <Grid
-    container
-    xs={12}
-    sx={{
-      px: { xs: 4, md: 10, xl: 20 },
-      justifyContent: "center",
-      gap: 5,
-    }}
-  >
-    <Typography
-      sx={{
-        color: "white",
-        fontSize: { xs: 25, md: 45 },
-        m: "0px 0px 30px 0px",
-      }}
-    >
-      My <span style={{ fontWeight: "bold" }}>Skills & Projects</span>
-    </Typography>
-    <Grid
-      container
-      xs={12}
-      sx={{ color: "white", gap: 3, justifyContent: "center" }}
-    >
-      <Grid container xs={12} ref={refs.current[0]}>
-        {inViews[0] && (
-          <motion.dev
-            initial={{ opacity: 0, x: -500 }}
-            animate={{ opacity: 1, x: 1 }}
-            transition={{ duration: 0.7 }}
-            style={{ width: "100%" }}
+        <Grid
+          container
+          xs={12}
+          sx={{
+            px: { xs: 4, md: 10, xl: 20 },
+            justifyContent: "center",
+            gap: 5,
+          }}
+        >
+          <Typography
+            sx={{
+              color: "white",
+              fontSize: { xs: 25, md: 45 },
+              m: "0px 0px 30px 0px",
+            }}
           >
-            <Grid
-              sx={{
-                border: "solid 1px #71717A",
-                borderRadius: 2,
-                p: 3,
-              }}
-            >
-              <Box
-                sx={{
-                  color: "white",
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                  m: "0px 0px 20px 0px",
-                  flexWrap: "wrap",
-                }}
-              >
-                <Box display={"flex"} alignItems={"center"} gap={5}>
-                  {/* <Avatar src={skillsIcon} /> */}
-                  <Typography sx={{ fontSize: { xs: 14, md: 18 } }}>
-                    Skills Overview
-                  </Typography>
-                </Box>
-              </Box>
-              <Typography
-                sx={{ fontSize: { xs: 12, md: 16 }, color: "#71717A" }}
-              >
-                - Proficient in JavaScript, React.js, Node.js, and MongoDB.
-                <br />
-                - Experience with modern web development techniques such as
-                RESTful APIs, and responsive design.
-                <br />
-                - Familiar with Git, Agile methodologies, and Test-Driven
-                Development (TDD).
-              </Typography>
-            </Grid>
-          </motion.dev>
-        )}
-      </Grid>
-      <Grid container xs={12} ref={refs.current[1]}>
-        {inViews[1] && (
-          <motion.dev
-            initial={{ opacity: 0, x: 500 }}
-            animate={{ opacity: 1, x: 1 }}
-            transition={{ duration: 0.7 }}
-            style={{ width: "100%" }}
+            My <span style={{ fontWeight: "bold" }}>Skills & Projects</span>
+          </Typography>
+          <Grid
+            container
+            xs={12}
+            sx={{ color: "white", gap: 3, justifyContent: "center" }}
           >
-            <Grid
-              container
-              xs={12}
-              sx={{ color: "white", gap: 3, justifyContent: "center" }}
-            >
-              <Grid
-                sx={{
-                  border: "solid 1px #71717A",
-                  borderRadius: 2,
-                  p: 3,
-                  width: "100%",
-                }}
-              >
-                <Box
-                  sx={{
-                    color: "white",
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                    m: "0px 0px 20px 0px",
-                    flexWrap: "wrap",
-                  }}
+            <Grid container xs={12} ref={refs.current[0]}>
+              {inViews[0] && (
+                <motion.dev
+                  initial={{ opacity: 0, x: -500 }}
+                  animate={{ opacity: 1, x: 1 }}
+                  transition={{ duration: 0.7 }}
+                  style={{ width: "100%" }}
                 >
-                  <Box display={"flex"} alignItems={"center"} gap={5}>
-                    {/* <Avatar src={projectIcon} /> */}
-                    <Typography sx={{ fontSize: { xs: 14, md: 18 } }}>
-                      Notable Projects
-                    </Typography>
-                  </Box>
-                </Box>
-                <Typography
-                  sx={{ fontSize: { xs: 12, md: 16 }, color: "#71717A" }}
-                >
-                  - Developed a dynamic web application using React.js and
-                  Node.js for a personal portfolio website.
-                  <br />
-                  - Built a REST API for a task management app with Express.js
-                  and MongoDB.
-                  <br />
-                  - Implemented responsive UI components using Material-UI and
-                  Tailwind CSS.
-                </Typography>
-              </Grid>
-            </Grid>
-          </motion.dev>
-        )}
-      </Grid>
-      <Grid container xs={12} ref={refs.current[2]}>
-        {inViews[2] && (
-          <motion.dev
-            initial={{ opacity: 0, x: -500 }}
-            animate={{ opacity: 1, x: 1 }}
-            transition={{ duration: 0.7 }}
-            style={{ width: "100%" }}
-          >
-            <Grid
-              container
-              xs={12}
-              sx={{ color: "white", gap: 3, justifyContent: "center" }}
-            >
-              <Grid
-                sx={{
-                  border: "solid 1px #71717A",
-                  borderRadius: 2,
-                  p: 3,
-                  width: "100%",
-                }}
-              >
-                <Box
-                  sx={{
-                    color: "white",
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                    m: "0px 0px 20px 0px",
-                    flexWrap: "wrap",
-                  }}
-                >
-                  <Box
-                    sx={{ display: "flex", alignItems: "center", gap: 5 }}
+                  <Grid
+                    sx={{
+                      border: "solid 1px #71717A",
+                      borderRadius: 2,
+                      p: 3,
+                    }}
                   >
-                    {/* <Avatar src={achievementIcon} /> */}
-                    <Typography sx={{ fontSize: { xs: 14, md: 18 } }}>
-                      Achievements
+                    <Box
+                      sx={{
+                        color: "white",
+                        display: "flex",
+                        justifyContent: "space-between",
+                        alignItems: "center",
+                        m: "0px 0px 20px 0px",
+                        flexWrap: "wrap",
+                      }}
+                    >
+                      <Box display={"flex"} alignItems={"center"} gap={5}>
+                        {/* <Avatar src={skillsIcon} /> */}
+                        <Typography sx={{ fontSize: { xs: 14, md: 18 } }}>
+                          Skills Overview
+                        </Typography>
+                      </Box>
+                    </Box>
+                    <Typography
+                      sx={{ fontSize: { xs: 12, md: 16 }, color: "#71717A" }}
+                    >
+                      - Proficient in JavaScript, React.js, Node.js, and
+                      MongoDB.
+                      <br />
+                      - Experience with modern web development techniques such
+                      as RESTful APIs, and responsive design.
+                      <br />- Familiar with Git, Agile methodologies, and
+                      Test-Driven Development (TDD).
                     </Typography>
-                  </Box>
-                </Box>
-                <Typography
-                  sx={{ fontSize: { xs: 12, md: 16 }, color: "#71717A" }}
-                >
-                  - Completed Full Stack Developer certification from Mahart.
-                  <br />
-                  - Built and deployed multiple personal projects using MERN
-                  stack.
-                  <br />
-                  - Achieved proficiency in building RESTful.
-                </Typography>
-              </Grid>
+                  </Grid>
+                </motion.dev>
+              )}
             </Grid>
-          </motion.dev>
-        )}
+            <Grid container xs={12} ref={refs.current[1]}>
+              {inViews[1] && (
+                <motion.dev
+                  initial={{ opacity: 0, x: 500 }}
+                  animate={{ opacity: 1, x: 1 }}
+                  transition={{ duration: 0.7 }}
+                  style={{ width: "100%" }}
+                >
+                  <Grid
+                    container
+                    xs={12}
+                    sx={{ color: "white", gap: 3, justifyContent: "center" }}
+                  >
+                    <Grid
+                      sx={{
+                        border: "solid 1px #71717A",
+                        borderRadius: 2,
+                        p: 3,
+                        width: "100%",
+                      }}
+                    >
+                      <Box
+                        sx={{
+                          color: "white",
+                          display: "flex",
+                          justifyContent: "space-between",
+                          alignItems: "center",
+                          m: "0px 0px 20px 0px",
+                          flexWrap: "wrap",
+                        }}
+                      >
+                        <Box display={"flex"} alignItems={"center"} gap={5}>
+                          {/* <Avatar src={projectIcon} /> */}
+                          <Typography sx={{ fontSize: { xs: 14, md: 18 } }}>
+                            Notable Projects
+                          </Typography>
+                        </Box>
+                      </Box>
+                      <Typography
+                        sx={{ fontSize: { xs: 12, md: 16 }, color: "#71717A" }}
+                      >
+                        - Developed a dynamic web application using React.js and
+                        Node.js for a personal portfolio website.
+                        <br />
+                        - Built a REST API for a task management app with
+                        Express.js and MongoDB.
+                        <br />- Implemented responsive UI components using
+                        Material-UI and Tailwind CSS.
+                      </Typography>
+                    </Grid>
+                  </Grid>
+                </motion.dev>
+              )}
+            </Grid>
+            <Grid container xs={12} ref={refs.current[2]}>
+              {inViews[2] && (
+                <motion.dev
+                  initial={{ opacity: 0, x: -500 }}
+                  animate={{ opacity: 1, x: 1 }}
+                  transition={{ duration: 0.7 }}
+                  style={{ width: "100%" }}
+                >
+                  <Grid
+                    container
+                    xs={12}
+                    sx={{ color: "white", gap: 3, justifyContent: "center" }}
+                  >
+                    <Grid
+                      sx={{
+                        border: "solid 1px #71717A",
+                        borderRadius: 2,
+                        p: 3,
+                        width: "100%",
+                      }}
+                    >
+                      <Box
+                        sx={{
+                          color: "white",
+                          display: "flex",
+                          justifyContent: "space-between",
+                          alignItems: "center",
+                          m: "0px 0px 20px 0px",
+                          flexWrap: "wrap",
+                        }}
+                      >
+                        <Box
+                          sx={{ display: "flex", alignItems: "center", gap: 5 }}
+                        >
+                          {/* <Avatar src={achievementIcon} /> */}
+                          <Typography sx={{ fontSize: { xs: 14, md: 18 } }}>
+                            Achievements
+                          </Typography>
+                        </Box>
+                      </Box>
+                      <Typography
+                        sx={{ fontSize: { xs: 12, md: 16 }, color: "#71717A" }}
+                      >
+                        - Completed Full Stack Developer certification from
+                        Mahart.
+                        <br />
+                        - Built and deployed multiple personal projects using
+                        MERN stack.
+                        <br />- Achieved proficiency in building RESTful.
+                      </Typography>
+                    </Grid>
+                  </Grid>
+                </motion.dev>
+              )}
+            </Grid>
+          </Grid>
+        </Grid>
       </Grid>
-    </Grid>
-  </Grid>
-</Grid>
-
 
       <Grid xs={12} sx={{ mx: { xs: 4, md: 10, xl: 20 } }}>
         <Grid
