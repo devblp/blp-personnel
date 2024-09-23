@@ -12,9 +12,18 @@ import headerLogo from "../../img/LOGO.png";
 
 // icon
 import DownloadIcon from "@mui/icons-material/Download";
-import MenuIcon from "@mui/icons-material/Menu";
 
 export default function ButtonAppBar() {
+  // downlaod file .pdf
+  const onButtonClick = () => {
+    const pdfUrl = "/Public/sinaNsibparast.pdf";
+    const link = document.createElement("a");
+    link.href = pdfUrl;
+    link.download = "sinaNsibparast.pdf"; // specify the filename
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar
@@ -33,10 +42,12 @@ export default function ButtonAppBar() {
             xs={12}
             sx={{
               flexDirection: "row",
-              justifyContent:{xs:"center",md:"space-between",xl:"space-between"},
-              alignItems:"center" ,
-              
-              
+              justifyContent: {
+                xs: "center",
+                md: "space-between",
+                xl: "space-between",
+              },
+              alignItems: "center",
             }}
           >
             <Grid>
@@ -60,7 +71,7 @@ export default function ButtonAppBar() {
                 </MenuItem>
                 <MenuItem
                   sx={{ fontWeight: "bold" }}
-                  onClick={()=>{
+                  onClick={() => {
                     window.scrollTo({
                       top: 850,
                       behavior: "smooth",
@@ -71,7 +82,7 @@ export default function ButtonAppBar() {
                 </MenuItem>
                 <MenuItem
                   sx={{ fontWeight: "bold" }}
-                  onClick={()=>{
+                  onClick={() => {
                     window.scrollTo({
                       top: 1600,
                       behavior: "smooth",
@@ -82,7 +93,7 @@ export default function ButtonAppBar() {
                 </MenuItem>
                 <MenuItem
                   sx={{ fontWeight: "bold" }}
-                  onClick={()=>{
+                  onClick={() => {
                     window.scrollTo({
                       top: 2230,
                       behavior: "smooth",
@@ -93,7 +104,7 @@ export default function ButtonAppBar() {
                 </MenuItem>
                 <MenuItem
                   sx={{ fontWeight: "bold" }}
-                  onClick={()=>{
+                  onClick={() => {
                     window.scrollTo({
                       top: 3800,
                       behavior: "smooth",
@@ -115,6 +126,7 @@ export default function ButtonAppBar() {
                   fontWeight: "bold",
                 }}
                 endIcon={<DownloadIcon />}
+                onClick={onButtonClick}
               >
                 <Typography>Resume</Typography>
               </Button>
